@@ -7,7 +7,7 @@ import { useState } from "react"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Logo from '../share/Logo';
 
-const LoginForm = () => {
+const RegisterForm = () => {
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -22,12 +22,27 @@ const LoginForm = () => {
                 </div>
                 
                 <div>
-                    <h1 className='font-bold text-blue-500 text-4xl text-center mb-6'>Login</h1>
+                    <h1 className='font-bold text-blue-500 text-4xl text-center mb-6'>Register</h1>
                 </div>
 
                 <div>
 
                     <form>
+                        <div className='mt-4'>
+                            <label 
+                            className='text-white font-semibold' 
+                            htmlFor="email">
+                                Name 
+                                <span className='text-red-500 text-2xl font-bold'>*</span>
+                            </label>
+                            <br></br>
+
+                            <input 
+                            type='text'
+                            className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0' 
+                            />
+                            <p className='text-gray-400 text-xs mt-1'>Enter Your Full Name.</p>
+                        </div>
 
                         <div className='mt-4'>
                             <label 
@@ -39,9 +54,10 @@ const LoginForm = () => {
                             <br></br>
 
                             <input 
+                            type='email'
                             className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0' 
                             />
-                            <p className='text-gray-400 text-xs mt-1'>Enter Your Email.</p>
+                            <p className='text-gray-400 text-xs mt-1'>Enter Your Email Address.</p>
                         </div>
 
                         <div className='mt-4'>
@@ -65,28 +81,21 @@ const LoginForm = () => {
                                 {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                             </button>
                         </div>
-                        
-                        <div className='flex items-center justify-between'>
-                            <p className='text-gray-400 text-xs mt-1'>Enter Your Password.</p>
-
-                            <Link to={'/forgot-password'}>
-                            <p className='text-yellow-500 text-xs mt-1'>Forgot password</p>
-                            </Link>
-                        </div>
+                        <p className='text-gray-400 text-xs mt-1'>Enter Strong Password.</p>
 
                         <button 
                         className='bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 w-full mt-5 rounded-lg font-bold border border-gray-500 transition-[0.5s] disabled:cursor-not-allowed disabled:bg-blue-300'>
-                            {/* {loading ? <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> : 'Login'} */}
-                            Login
+                            {/* {loading ? <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> : 'Register'} */}
+                            Register
                         </button>
 
                     </form>
 
                     <p className='text-sm mt-4 mb-4 sm:flex justify-center space-x-2 text-gray-300'>
-                        <span>Do not have an account?</span>
+                        <span>Already have an account?</span>
                         <span className='text-green-500'>
-                        <Link className='flex items-center space-x-1' to='/register'>
-                            <span>Register here!</span> <LuSquareArrowOutUpRight />
+                        <Link className='flex items-center space-x-1' to='/login'>
+                            <span>Login here!</span> <LuSquareArrowOutUpRight />
                         </Link>
                         </span>
                     </p>
@@ -112,4 +121,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm
+export default RegisterForm
