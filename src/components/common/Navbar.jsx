@@ -38,7 +38,7 @@ const Navbar = () => {
     </>
 
   return (
-    <section className='bg-[#030922] py-3 font-semibold border-b border-gray-700 sticky top-0 z-50 backdrop-blur-lg'>
+    <section className='bg-[#030922] py-3 font-semibold border-b border-gray-700'>
         <div className='flex justify-between items-center max-w-[90%] xl:max-w-[1200px] mx-auto'>
 
             <Link to={'/'}>
@@ -70,7 +70,7 @@ const Navbar = () => {
 
             {isOpen && 
                 <div
-                className={`absolute top-16 mt-2 min-h-[calc(100vh-73px)] right-0 bg-[#03092292] w-full shadow-lg flex flex-col items-center justify-center space-y-4 p-4 text-center`}>
+                className={`absolute top-16 mt-2 min-h-[calc(100vh-73px)] right-0 bg-[#030922ed] w-full shadow-lg flex flex-col items-center justify-center space-y-4 p-4 text-center`}>
                     <ul className='flex flex-col items-center space-y-5'>
                         {navItems}
                     </ul>

@@ -4,7 +4,7 @@ import './banner.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react"
-import bannerImg from '../../assets/bannerImg.webp'
+import banner from '../../assets/banner.webp'
 
 const Banner = () => {
 
@@ -18,28 +18,26 @@ const Banner = () => {
             <div className="max-w-[90%] xl:max-w-[1200px] mx-auto">
                 
                 <div className="sm:flex items-center justify-between text-white pt-4 lg:pt-0 text-center sm:text-left overflow-hidden relative">
-                    <div data-aos="fade-right"  data-aos-duration="2000" className="sm:w-1/2">
-                        <h1  className="text-5xl text-center sm:text-start font-bold mb-5 flex flex-col lg:flex-row gap-2">
-                            <span>
-                                Welcome
-                            </span>
-                            <span className="font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">FoodLinker</span>
+                    <div data-aos="fade-right"  data-aos-duration="2000" className="lg:w-[45%]">
+                        <h1  className="text-5xl text-center sm:text-start font-bold mb-5 ">
+                            Achieve More With Limitless 
+                            <span className="font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient"> Learning</span>
                         </h1>
-                        <p className="text-gray-300">FoodLinker makes it easy to share excess food and spread happiness. Let’s turn surplus into a sustainable solution. At FoodLinker, we believe that every meal has the power to make a difference. Our platform connects people with surplus food to those in need, creating a network where sharing sustains lives and strengthens communities. By bridging the gap between abundance and scarcity, we aim to reduce food waste and ensure that no one goes hungry.</p>
+                        <p className="text-gray-300">8 May 2024 virtualacademybd started
+                        From the beginning, our goal was to develop the educated unemployed of the country completely free of cost. And provide guaranteed jobs. Now we are moving forward with this goal. Initially, we started with about 150 students, but some students were serious and in the end, virtualacademybd was able to arrange their jobs and internships. Thank you all for being with us.</p>
                         
-                        <Link to='available-foods'>
-                            <button className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 transition-[0.5s] font-semibold py-2 px-4 rounded-md mt-5">See Available Food</button>
+                        <Link to='all-course'>
+                            <button className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 transition-[0.5s] font-semibold py-2 px-4 rounded-md mt-5">View All Course</button>
                         </Link>
                     </div>
 
-                    <div data-aos="fade-left"  data-aos-duration="2000">
-                       <img className="w-[300px]" src={bannerImg} alt="" />
+                    <div className="lg:w-[50%] lg:h-[500px] sm:-mt-10" data-aos="fade-left"  data-aos-duration="2000">
+                       <img src={banner} alt="" />
                     </div>
                 </div>
                 
             </div>
 
-            <div className="absolute h-72 w-72 rounded-full bg-gradient-to-tr from-[#0000ff2b] to-[teal] top-0 left-0 animate-pulse blur-xl hidden lg:block"></div>
         </section>
     )
 }
