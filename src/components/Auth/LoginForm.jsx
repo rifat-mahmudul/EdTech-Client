@@ -39,6 +39,7 @@ const LoginForm = () => {
                             <br></br>
 
                             <input 
+                            type='email'
                             className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0' 
                             />
                             <p className='text-gray-400 text-xs mt-1'>Enter Your Email.</p>

@@ -3,6 +3,7 @@ import Root from "../Layout/Root";
 import Home from "../page/Main/Home";
 import Login from "../page/Authentication/Login";
 import Register from "../page/Authentication/Register";
+import ForgotPass from "../page/Authentication/ForgotPass";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         {/* authenticated Route */}
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/forgot-password" element={<ForgotPass></ForgotPass>}></Route>
 
     </Routes>
   )
