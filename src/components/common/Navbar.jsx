@@ -1,9 +1,9 @@
 import { Link } from 'react-router'
-import logo from '../../assets/logo.jpg'
 import NavItem from '../share/NavItem'
 import { RiMenu3Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from 'react';
+import Logo from '../share/Logo';
 
 const Navbar = () => {
 
@@ -41,12 +41,7 @@ const Navbar = () => {
     <section className='bg-[#030922] py-3 font-semibold border-b border-gray-700'>
         <div className='flex justify-between items-center max-w-[90%] xl:max-w-[1200px] mx-auto'>
 
-            <Link to={'/'}>
-                <div className='flex space-x-1 items-center'>
-                    <img src={logo} className='h-12 w-12 rounded-full' alt="" />
-                    <h1 className='font-bold text-lg hidden sm:block'>Virtual Academy BD</h1>
-                </div>
-            </Link>
+            <Logo></Logo>
 
             <nav className='hidden lg:block'>
                 <ul className='flex items-center space-x-5'>
