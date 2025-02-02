@@ -1,4 +1,5 @@
 import Banner from "../../components/Home/Banner"
+import Faq from "../../components/Home/Faq"
 import OurMission from "../../components/Home/OurMission"
 import HelmetTitle from "../../components/share/HelmetTitle"
 
@@ -8,6 +9,7 @@ const Home = () => {
       <HelmetTitle title={'Home'}></HelmetTitle>
       <Banner></Banner>
       <OurMission></OurMission>
+      <Faq></Faq>
     </section>
   )
 }
