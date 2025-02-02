@@ -1,4 +1,5 @@
 
+import HelmetTitle from '../../components/share/HelmetTitle';
 import Logo from '../../components/share/Logo';
 
 
@@ -6,6 +7,8 @@ const ForgotPass = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen">
+
+            <HelmetTitle title={'Forgot password'}></HelmetTitle>
 
             <div className='border border-gray-500 shadow-xl rounded-lg w-[90%] sm:w-[500px] p-8 bg-gradient-to-t from-[#0C1725] to-[#0E272B]'>
 
