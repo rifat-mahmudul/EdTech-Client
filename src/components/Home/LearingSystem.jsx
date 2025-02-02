@@ -45,7 +45,7 @@ const LearningSystem = () => {
 
       <div className=" text-white shadow-lg flex flex-col md:flex-row">
 
-        <div className="flex-1 space-y-6 border-l-2 border-gray-300">
+        <div className="flex-1 space-y-8 border-l-2 border-gray-300">
           {features.map((feature, index) => (
             <div
               key={index}
