@@ -15,79 +15,147 @@ const Faq = () => {
                 <div className="rounded-lg mt-10">
 
                         <FaqQuestion
-                        question='What is Pawfy?'
-                        ans='Pawfy is a dedicated platform that connects individuals looking to adopt pets with shelters and pet owners offering animals for adoption. We aim to help every pet find a loving and caring home.'
+                        question='What I Will Learn From Our Platform?'
+                        ans='Ethical Hacking, Frontend Web Development, Video Editing, Digital Marketing, Graphic Design'
                         >
                         </FaqQuestion>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='How does the pet adoption process work?'
-                            ans='Browse through our available pets. Then Select the pet you are interested in and submit an adoption request. Wait for the pet owner or shelter to review your request. Once approved, you can finalize the adoption and bring your new friend home!'
+                            question='Ethical Hacking'
+                            ans='In this course, you will gain a deep understanding of ethical hacking, including penetration
+                            testing, network security, vulnerability assessment, and cyber defense strategies, which will
+                            enable you to identify, analyze, and mitigate security threats in computer systems and networks.
+                            You will also develop the ability to think like a hacker to protect systems, conduct security audits,
+                            and ethically test vulnerabilities, making you well-equipped to secure organizations, prevent
+                            cyberattacks, and pursue a career in cybersecurity.'
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='Is there a fee for adopting a pet?'
-                            ans='Adoption fees vary depending on the pet and the shelter or individual offering the adoption. These fees often cover vaccinations, microchipping, and spaying/neutering costs.'
+                            question='Frontend Web Development'
+                            ans='In this course, you will gain a deep understanding of frontend web development, including
+                            HTML, CSS, JavaScript, and modern frameworks like React or Vue.js, which will enable you to
+                            build responsive, interactive, and user-friendly websites and web applications. You will also
+                            develop the ability to design and optimize web interfaces, enhance user experience, and
+                            implement best coding practices, making you well-equipped to pursue a career as a frontend
+                            developer, work on real-world projects, or contribute to web-based applications.'
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='What types of pets can I adopt on Pawfy?'
-                            ans='Pawfy offers a variety of pets for adoption, including dogs, cats, rabbits, birds, and more. Availability depends on what local shelters and pet owners list on the platform.'
+                            question='Video Editing'
+                            ans='In this course, you will gain a deep understanding of video editing, including cutting, trimming,
+                            color grading, transitions, special effects, and audio synchronization, which will enable you to
+
+                            create professional-quality videos for various platforms, including social media, films, and
+                            advertisements. You will also develop the ability to use industry-standard editing software,
+                            enhance storytelling through visuals, and apply advanced editing techniques, making you
+                            well-equipped to pursue a career in video production, content creation, or digital media.'
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='Do I need to meet any requirements to adopt a pet?'
-                            ans='Requirements vary depending on the pet owner or shelter. Typically, they may require proof of a stable living environment, identification, and sometimes a reference or home visit to ensure the pet is going to a safe and loving home.'
+                            question='Digital Marketing'
+                            ans='In this course, you will gain a deep understanding of digital marketing, including SEO, social
+                            media marketing, content marketing, email marketing, paid advertising, and analytics, which will
+                            enable you to create and execute effective marketing strategies to grow businesses and brands
+                            online. You will also develop the ability to analyze market trends, optimize campaigns, and use
+                            data-driven strategies, making you well-equipped to pursue a career in digital marketing,
+                            manage online brand presence, and drive business growth through digital channels.'
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='Can I list a pet for adoption on Pawfy?'
-                            ans='Yes, you can! Pawfy allows registered users to list pets for adoption. Simply create a profile, upload the pet’s details and photos, and start connecting with potential adopters.'
+                            question='Graphic Design'
+                            ans='In this course, you will gain a deep understanding of graphic design, including visual
+                            composition, typography, color theory, branding, and digital illustration, which will enable you to
+                            create visually appealing designs for marketing, advertising, branding, and digital platforms. You
+                            will also develop the ability to use industry-standard design tools, communicate ideas effectively
+                            through visuals, and apply design principles to real-world projects, making you well-equipped to
+                            work as a graphic designer, create stunning visuals for businesses, or start a freelance design
+                            career.'
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='Are the pets vaccinated and spayed/neutered?'
-                            ans='Most shelters and responsible pet owners ensure pets are vaccinated and spayed/neutered before adoption. However, always confirm these details when you inquire about a specific pet.'
+                            question='For Whom Is This Course?'
+                            ans='1️⃣Ethical Hacking – Ideal for cybersecurity enthusiasts, IT professionals, and anyone interesin ethical hacking, penetration testing, and cybersecurity defense.
+
+                            2️⃣Frontend Web Development – Perfect for aspiring web developers, designers, and who wants to build responsive and interactive websites.
+
+                            3️⃣Video Editing – Suitable for content creators, filmmakers, YouTubers, and anyone lookingmaster video production and post-production techniques.
+
+                            4️⃣Digital Marketing – Designed for entrepreneurs, business owners, marketers, and individuawho want to learn online marketing strategies to grow a brand.
+
+                            5️⃣Graphic Design – Best for creative individuals, aspiring designers, marketers, and busineowners who want to create stunning visual content.
+                            '
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='What should I consider before adopting a pet?'
-                            ans='Adopting a pet is a lifetime commitment. Consider the time, resources, and love you can provide. Also, make sure you choose a pet that fits your lifestyle and living situation.'
+                            question='Educational Background Required!'
+                            ans='
+                            1️⃣Ethical Hacking – No formal degree required! Basic computer knowledge and a passion for cybersecurity are enough to start. CSE students will have an advantage.
+
+                            2️⃣Frontend Web Development – Open to all! No prior experience needed, but bas programming knowledge can help. Perfect for students and self-learners.
+
+                            3️⃣Video Editing – Anyone can join! Creativity matters more than formal education. Ideal for content creators and those eager to tell stories through videos.
+
+                            4️⃣Digital Marketing – No technical background needed! If you are passionate about business growth and online marketing, this course is for you.
+                            '
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='What if I can no longer take care of my adopted pet?'
-                            ans='If circumstances change and you can no longer care for your pet, contact the shelter or previous owner for guidance. Pawfy also allows you to list pets for adoption responsibly if rehoming is necessary.'
+                            question='How Can I Get Access to Recorded Class?'
+                            ans='You can access class recordings anytime! 🎥📚 Every live session is recorded and available on our website, so you can watch, rewind, and learn at your own pace—anytime, anywhere! 🚀✨'
                             >
                             </FaqQuestion>
                         </div>
 
                         <div className="pt-4">
                             <FaqQuestion
-                            question='How can I contact Pawfy for support?'
-                            ans='You can reach out to our support team through the "Contact Us" section on our website. We’re here to help with any questions or issues related to pet adoption.'
+                            question='What Should I Do If I Get Stuck?'
+                            ans='You are never alone! 🚀 Get instant support from your teacher/mentor anytime. We are here 24/7 to guide you, motivate you, and help you achieve your goals! 💡💪'
+                            >
+                            </FaqQuestion>
+                        </div>
+
+                        <div className="pt-4">
+                            <FaqQuestion
+                            question='Will You Help Us Earn?'
+                            ans='Absolutely! 🚀 We offer internships and job opportunities to all our students, helping you turn your skills into real earnings! 💼💰'
+                            >
+                            </FaqQuestion>
+                        </div>
+
+                        <div className="pt-4">
+                            <FaqQuestion
+                            question='How Do You Conduct Online Classes?'
+                            ans='We offer live classes where you can interact, ask questions, and engage with your teacher in real time! 📢✨ Plus, every session is recorded so you can revisit and learn anytime. 🎥📚'
+                            >
+                            </FaqQuestion>
+                        </div>
+
+                        <div className="pt-4">
+                            <FaqQuestion
+                            question='Will I Get a Certificate?'
+                            ans='Yes! 🎓✅ Complete the course and earn a recognized certificate to showcase your skills and boost your career! 🚀'
                             >
                             </FaqQuestion>
                         </div>
