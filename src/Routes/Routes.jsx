@@ -4,6 +4,7 @@ import Home from "../page/Main/Home";
 import Login from "../page/Authentication/Login";
 import Register from "../page/Authentication/Register";
 import ForgotPass from "../page/Authentication/ForgotPass";
+import PrivacyPolicy from "../page/Main/PrivacyPolicy";
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
         {/* Root Layout */}
         <Route path="/" element={<Root></Root>}>
             <Route path="/" element={<Home></Home>}></Route>
+            <Route path="/privacy-policy" element={<PrivacyPolicy></PrivacyPolicy>}></Route>
         </Route>
 
         {/* authenticated Route */}

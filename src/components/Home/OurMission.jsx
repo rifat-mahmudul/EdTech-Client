@@ -17,7 +17,7 @@ const OurMission = () => {
     
 
     return (
-        <section className="py-24">
+        <section id="about" className="py-24">
             
             <div className="mb-14">
                 <Title title='Our Mission And Vision'></Title>
