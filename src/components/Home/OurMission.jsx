@@ -27,7 +27,7 @@ const OurMission = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     
-                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600">
+                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:bg-gradient-to-tr hover:from-stone-700 hover:to-[#101829] transition">
                         <div>
                             <AiOutlineSolution className="mx-auto text-6xl text-orange-500" />
                         </div>
@@ -35,7 +35,7 @@ const OurMission = () => {
                         <p className="text-gray-400">Encouraging individuals to continuously develop new skills and adapt to evolving job market trends for sustained career success.</p>
                     </div>
 
-                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:scale-105 transition-[0.5s]">
+                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:bg-gradient-to-tr hover:from-stone-700 hover:to-[#101829] transition">
                         <div>
                             <IoCloudDone className="mx-auto text-6xl text-blue-500" />
                         </div>
@@ -43,7 +43,7 @@ const OurMission = () => {
                         <p className="text-gray-400">Offering comprehensive digital training programs that equip learners with essential technological skills to thrive in the digital age.</p>
                     </div>
 
-                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:scale-105 transition-[0.5s]">
+                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:bg-gradient-to-tr hover:from-stone-700 hover:to-[#101829] transition">
                         <div>
                             <FaFileCircleQuestion className="mx-auto text-6xl text-rose-500" />
                         </div>
@@ -51,7 +51,7 @@ const OurMission = () => {
                         <p className="text-gray-400">Aligning education with industry requirements by providing relevant, hands-on training to create a highly skilled workforce.</p>
                     </div>
 
-                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:scale-105 transition-[0.5s]">
+                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:bg-gradient-to-tr hover:from-stone-700 hover:to-[#101829] transition">
                         <div>
                             <SiFuturelearn className="mx-auto text-6xl text-teal-500" />
                         </div>
@@ -59,7 +59,7 @@ const OurMission = () => {
                         <p className="text-gray-400">Fostering job creation through comprehensive training and skill development.</p>
                     </div>
 
-                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:scale-105 transition-[0.5s]">
+                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:bg-gradient-to-tr hover:from-stone-700 hover:to-[#101829] transition">
                         <div>
                             <FaPeopleGroup className="mx-auto text-6xl text-green-500" />
                         </div>
@@ -67,7 +67,7 @@ const OurMission = () => {
                         <p className="text-gray-400">Equipping unemployed individuals with the skills they need to thrive in the job market.</p>
                     </div>
 
-                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:scale-105 transition-[0.5s]">
+                    <div data-aos="fade-up" className="text-center bg-[#101829] p-5 rounded-xl cursor-pointer border border-gray-600 hover:bg-gradient-to-tr hover:from-stone-700 hover:to-[#101829] transition">
                         <div>
                             <FaAccessibleIcon className="mx-auto text-6xl text-pink-500" />
                         </div>
