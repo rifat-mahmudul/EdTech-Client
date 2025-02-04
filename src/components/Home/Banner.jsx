@@ -19,9 +19,10 @@ const Banner = () => {
                 
                 <div className="sm:flex items-center justify-between text-white pt-4 lg:pt-0 text-center sm:text-left overflow-hidden relative">
                     <div data-aos="fade-right"  data-aos-duration="2000" className="lg:w-[45%]">
-                        <h1  className="text-5xl text-center sm:text-start font-bold mb-5 ">
-                            Achieve More With Limitless 
-                            <span className="font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient"> Learning</span>
+                        <h1  className="text-5xl text-center sm:text-start font-bold mb-5">
+                            <span className="font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">Virtual Academy BD - </span>
+                            <span className="font-bold"> Learn, Excel, and Build Your Dream Career!</span>
+                            <span className="animate-pulse">🚀</span>
                         </h1>
                         <p className="text-gray-300">8 May 2024 virtualacademybd started
                         From the beginning, our goal was to develop the educated unemployed of the country completely free of cost. And provide guaranteed jobs. Now we are moving forward with this goal. Initially, we started with about 150 students, but some students were serious and in the end, virtualacademybd was able to arrange their jobs and internships. Thank you all for being with us.</p>
