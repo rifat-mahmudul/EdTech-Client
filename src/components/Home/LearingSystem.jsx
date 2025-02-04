@@ -5,34 +5,39 @@ import learningImg from '../../assets/learning.png'
 const LearningSystem = () => {
   const features = [
     {
-      title: "Interactive Live & Recording Classes",
+      title: "🎥 Live Interactive Classes",
       description:
-        "Learn something new every day by watching recorded conceptual classes and joining live classes for doubt clearing.",
+        "Imagine sitting in a virtual classroom where you can interact with expert mentors, ask questions, and get immediate feedback.",
     },
     {
-      title: "Module Based Study Plan",
+      title: "📼 Recorded Classes – Learn at Your Own Pace",
       description:
-        "No chance of falling behind with a structured module-wise study plan packed with quizzes, assignments & practice homework.",
+        "Missed a session? No worries! Every class is recorded and stored in your dashboard, so you can revisit lessons anytime, anywhere. Learn at your convenience and never fall behind.",
     },
     {
-      title: "Conceptual Crash Course",
+      title: "📖 Module-Based Learning – Step-by-Step Progress",
       description:
-        "Not just a course enrollment, but a mission to learn lifelong programming skills with expert guidance.",
+        "We don’t believe in throwing random lessons at you. Our structured module-based curriculum ensures that you build skills progressively—from beginner to advanced levels—so you never feel overwhelmed.",
     },
     {
-      title: "Freelancing & Job Placement Guide",
+      title: "⚡ Crash Courses – Learn Faster, Smarter!",
       description:
-        "Serious learners get freelancing guides and job placement support from zero to career success.",
+        "Pressed for time? Our crash courses are designed to help you quickly master high-demand skills without compromising quality. Whether you’re a beginner or someone looking to upskill, we’ve got you covered.",
     },
     {
-      title: "Learning Process Track Record",
+      title: "🎓 Certification – Showcase Your Achievement",
       description:
-        "Track your progress in real time, see your leaderboard position, and stay ahead in the competition.",
+        "Upon course completion, you’ll receive an industry-recognized professional certificate, proving your expertise and giving you an edge in the job market.",
     },
     {
-      title: "Unlimited Support",
+      title: "💼 Guaranteed Internship & Job Assistance",
       description:
-        "Get continuous assistance and mentorship throughout your learning journey.",
+        "Unlike other platforms that just teach, we ensure you land a job! Every student gets access to internship opportunities, real-world projects, and career guidance to help them step into the professional world with confidence.",
+    },
+    {
+      title: "️ Lifetime Support & Free Updates",
+      description:
+        "Your learning journey doesn’t end when the course does! Enroll once, and you get lifetime access to course updates, mentorship, and community support—ensuring that your skills stay relevant as industries evolve.",
     },
   ];
 
@@ -45,7 +50,7 @@ const LearningSystem = () => {
 
       <div className=" text-white shadow-lg flex flex-col md:flex-row">
 
-        <div className="flex-1 space-y-10 border-l-2 border-gray-300">
+        <div className="flex-1 space-y-10 border-l-2 border-dashed border-gray-300">
           {features.map((feature, index) => (
             <div
               key={index}
