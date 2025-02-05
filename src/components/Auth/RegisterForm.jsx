@@ -2,15 +2,27 @@
 import { Link } from 'react-router'
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
-// import { ImSpinner9 } from 'react-icons/im';
+import { ImSpinner9 } from 'react-icons/im';
 import { useState } from "react"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Logo from '../share/Logo';
+import useAuth from '../../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const RegisterForm = () => {
 
     const [showPassword, setShowPassword] = useState(false);
+    const {signInGoogle, createUser, profileUpdate, loading} = useAuth();
 
+    const handleGoogleSignIn = async() => {
+        try {
+            await signInGoogle();
+            toast.success('Register Successful!');
+        } catch (error) {
+            console.log(`error from Register ${error}`);
+            toast.error('Register Failed, Please Try Again!');
+        }
+    }
 
     return (
         <div className="flex items-center justify-center min-h-screen">
@@ -109,9 +121,18 @@ const RegisterForm = () => {
                     </div>
 
                     <button 
+                    onClick={handleGoogleSignIn}
+                    disabled={loading}
                     className='bg-black py-3 w-full mt-5 rounded-lg font-bold flex items-center justify-center space-x-2 disabled:cursor-pointer'
                     >
-                        <FcGoogle className='text-3xl' /> <span>Continue With Google</span>
+                        {
+                            loading ? 
+                            <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> 
+                            : 
+                            <>
+                            <FcGoogle className='text-3xl' /> <span>Continue With Google</span>
+                            </>
+                        }
                     </button>
 
                 </div>
