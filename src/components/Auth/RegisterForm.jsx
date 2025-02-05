@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner9 } from 'react-icons/im';
@@ -8,16 +8,40 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Logo from '../share/Logo';
 import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import { useForm } from "react-hook-form";
 
 const RegisterForm = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const {signInGoogle, createUser, profileUpdate, loading} = useAuth();
+    const navigate = useNavigate('');
+    const location = useLocation();
+    const from = location.state || '/';
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = async(data) => {
+        const email = data?.email;
+        const password = data?.password;
+        const name = data?.name;
+
+        try {
+            await createUser(email, password);
+            await profileUpdate(name);
+            toast.success('Register Successful!');
+            navigate('/login')
+        } catch (error) {
+            console.log(`error from register ${error}`);
+            toast.error('Register Failed, Please Try Again!');
+        }
+
+    }
 
     const handleGoogleSignIn = async() => {
         try {
             await signInGoogle();
             toast.success('Register Successful!');
+            navigate(from);
         } catch (error) {
             console.log(`error from Register ${error}`);
             toast.error('Register Failed, Please Try Again!');
@@ -39,7 +63,7 @@ const RegisterForm = () => {
 
                 <div>
 
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='mt-4'>
                             <label 
                             className='text-white font-semibold' 
@@ -52,8 +76,17 @@ const RegisterForm = () => {
                             <input 
                             type='text'
                             className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0' 
+                            {
+                                ...register('name', {
+                                    required : "Name is required."
+                                })
+                            }
                             />
-                            <p className='text-gray-400 text-xs mt-1'>Enter Your Full Name.</p>
+                            {
+                                errors.name ? 
+                                <p className='text-xs mt-1 text-red-500'>{errors.name.message}</p> : 
+                                <p className='text-gray-400 text-xs mt-1'>Enter Your Full Name.</p>
+                            }
                         </div>
 
                         <div className='mt-4'>
@@ -68,8 +101,19 @@ const RegisterForm = () => {
                             <input 
                             type='email'
                             className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0' 
+                            {...register("email",{
+                                required : 'Email is required',
+                                pattern : {
+                                    value : /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                                    message : 'Invalid Email Address'
+                                }
+                            })}
                             />
-                            <p className='text-gray-400 text-xs mt-1'>Enter Your Email Address.</p>
+                            {
+                                errors.name ? 
+                                <p className='text-xs mt-1 text-red-500'>{errors.email.message}</p> : 
+                                <p className='text-gray-400 text-xs mt-1'>Enter Your Email Address</p>
+                            }
                         </div>
 
                         <div className='mt-4'>
@@ -84,6 +128,19 @@ const RegisterForm = () => {
                             <input 
                             className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0'
                             type={showPassword ? 'text' : 'password'}
+                            {...register("password",
+                                {
+                                    required : 'Password is required',
+                                    minLength : {
+                                        value : 6,
+                                        message : "Password must be at least 6 characters"
+                                    },
+                                    pattern: {
+                                        value: /^(?=.*[a-z])(?=.*[A-Z]).+$/,
+                                        message: "Password must include uppercase and lowercase letters",
+                                    },
+                                }
+                            )}
                             />
 
                             <button 
@@ -93,12 +150,19 @@ const RegisterForm = () => {
                                 {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                             </button>
                         </div>
-                        <p className='text-gray-400 text-xs mt-1'>Enter Strong Password.</p>
+                        {      
+                            errors.password 
+                            ? 
+                            <p className='text-red-500 text-sm mt-1'>{errors.password.message}</p> 
+                            : 
+                            <p className='text-gray-400 text-sm mt-1'>Enter Your Password.</p>
+                        }
 
                         <button 
+                        disabled={loading}
+                        type='submit'
                         className='bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 w-full mt-5 rounded-lg font-bold border border-gray-500 transition-[0.5s] disabled:cursor-not-allowed disabled:bg-blue-300'>
-                            {/* {loading ? <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> : 'Register'} */}
-                            Register
+                            {loading ? <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> : 'Register'}
                         </button>
 
                     </form>
@@ -123,7 +187,7 @@ const RegisterForm = () => {
                     <button 
                     onClick={handleGoogleSignIn}
                     disabled={loading}
-                    className='bg-black py-3 w-full mt-5 rounded-lg font-bold flex items-center justify-center space-x-2 disabled:cursor-pointer'
+                    className='bg-black py-3 w-full mt-5 rounded-lg font-bold flex items-center justify-center space-x-2 disabled:cursor-not-allowed'
                     >
                         {
                             loading ? 
