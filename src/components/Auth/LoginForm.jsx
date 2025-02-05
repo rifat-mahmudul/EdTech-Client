@@ -1,16 +1,33 @@
 
-import { Link } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
 // import { ImSpinner9 } from 'react-icons/im';
 import { useState } from "react"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Logo from '../share/Logo';
+import useAuth from '../../Hooks/useAuth';
+import { ImSpinner9 } from 'react-icons/im';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
 
     const [showPassword, setShowPassword] = useState(false);
+    const {signInGoogle, logIn, loading} = useAuth();
+    const navigate = useNavigate('');
+    const location = useLocation();
+    const from = location.state || '/';
 
+    const handleGoogleSignIn = async() => {
+        try {
+            await signInGoogle();
+            toast.success('Log in Successful!');
+            navigate(from);
+        } catch (error) {
+            console.log(`error from Log in ${error}`);
+            toast.error('Log in Failed, Please Try Again!');
+        }
+    }
 
     return (
         <div className="flex items-center justify-center min-h-screen">
@@ -101,9 +118,18 @@ const LoginForm = () => {
                     </div>
 
                     <button 
-                    className='bg-black py-3 w-full mt-5 rounded-lg font-bold flex items-center justify-center space-x-2 disabled:cursor-pointer'
+                    onClick={handleGoogleSignIn}
+                    disabled={loading}
+                    className='bg-black py-3 w-full mt-5 rounded-lg font-bold flex items-center justify-center space-x-2 disabled:cursor-not-allowed'
                     >
-                        <FcGoogle className='text-3xl' /> <span>Continue With Google</span>
+                        {
+                            loading ? 
+                            <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> 
+                            : 
+                            <>
+                            <FcGoogle className='text-3xl' /> <span>Continue With Google</span>
+                            </>
+                        }
                     </button>
 
                 </div>
