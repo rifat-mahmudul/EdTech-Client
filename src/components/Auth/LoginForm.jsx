@@ -9,6 +9,7 @@ import Logo from '../share/Logo';
 import useAuth from '../../Hooks/useAuth';
 import { ImSpinner9 } from 'react-icons/im';
 import toast from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
 const LoginForm = () => {
 
@@ -17,6 +18,23 @@ const LoginForm = () => {
     const navigate = useNavigate('');
     const location = useLocation();
     const from = location.state || '/';
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = async(data) => {
+
+        const email = data?.email;
+        const password = data?.password;
+
+        try {
+            await logIn(email, password);
+            toast.success('Log in successful!');
+            navigate(from);
+        } catch (error) {
+            console.log(`error from log in ${error}`);
+            toast.error('Log in Failed, Please Try Again!');
+        }
+    }
 
     const handleGoogleSignIn = async() => {
         try {
@@ -44,7 +62,7 @@ const LoginForm = () => {
 
                 <div>
 
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className='mt-4'>
                             <label 
@@ -58,8 +76,19 @@ const LoginForm = () => {
                             <input 
                             type='email'
                             className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0' 
+                            {...register("email",{
+                                required : 'Email is required',
+                                pattern : {
+                                    value : /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                                    message : 'Invalid Email Address'
+                                }
+                            })}
                             />
-                            <p className='text-gray-400 text-xs mt-1'>Enter Your Email.</p>
+                            {
+                                errors.email ? 
+                                <p className='text-xs mt-1 text-red-500'>{errors.email.message}</p> : 
+                                <p className='text-gray-400 text-xs mt-1'>Enter Your Email Address</p>
+                            }
                         </div>
 
                         <div className='mt-4'>
@@ -74,6 +103,19 @@ const LoginForm = () => {
                             <input 
                             className='w-full bg-inherit border-b-2  border-gray-700 focus:border-blue-500 focus:outline-0'
                             type={showPassword ? 'text' : 'password'}
+                            {...register("password",
+                                {
+                                    required : 'Password is required',
+                                    minLength : {
+                                        value : 6,
+                                        message : "Password must be at least 6 characters"
+                                    },
+                                    pattern: {
+                                        value: /^(?=.*[a-z])(?=.*[A-Z]).+$/,
+                                        message: "Password must include uppercase and lowercase letters",
+                                    },
+                                }
+                            )}
                             />
 
                             <button 
@@ -85,7 +127,13 @@ const LoginForm = () => {
                         </div>
                         
                         <div className='flex items-center justify-between'>
-                            <p className='text-gray-400 text-xs mt-1'>Enter Your Password.</p>
+                            {      
+                                errors.password 
+                                ? 
+                                <p className='text-red-500 text-sm mt-1'>{errors.password.message}</p> 
+                                : 
+                                <p className='text-gray-400 text-sm mt-1'>Enter Your Password.</p>
+                            }
 
                             <Link to={'/forgot-password'}>
                             <p className='text-yellow-500 text-xs mt-1'>Forgot password</p>
@@ -93,9 +141,9 @@ const LoginForm = () => {
                         </div>
 
                         <button 
+                        disabled={loading}
                         className='bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 w-full mt-5 rounded-lg font-bold border border-gray-500 transition-[0.5s] disabled:cursor-not-allowed disabled:bg-blue-300'>
-                            {/* {loading ? <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> : 'Login'} */}
-                            Login
+                            {loading ? <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> : 'Login'}
                         </button>
 
                     </form>

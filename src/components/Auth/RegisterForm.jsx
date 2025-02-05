@@ -110,7 +110,7 @@ const RegisterForm = () => {
                             })}
                             />
                             {
-                                errors.name ? 
+                                errors.email ? 
                                 <p className='text-xs mt-1 text-red-500'>{errors.email.message}</p> : 
                                 <p className='text-gray-400 text-xs mt-1'>Enter Your Email Address</p>
                             }
