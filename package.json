@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.65.0",
     "aos": "^2.3.4",
+    "firebase": "^11.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
