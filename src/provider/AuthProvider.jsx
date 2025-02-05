@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 
-const authContext = createContext();
+export const authContext = createContext();
 
 const AuthProvider = ({children}) => {
 
