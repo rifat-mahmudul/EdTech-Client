@@ -4,10 +4,13 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from 'react';
 import Logo from '../share/Logo';
+import useAuth from '../../Hooks/useAuth';
+import { DropdownNev } from './DropdownNev';
 
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const {user} = useAuth();
 
 
     const navItems = <>
@@ -16,24 +19,32 @@ const Navbar = () => {
         <li><NavItem address='/' navName={'Courses'}></NavItem></li>
 
         {/* authentication related buttons */}
-        <li>
-            <Link to={'/login'}>
-                <button 
-                className='border border-gray-500 py-2 px-5 rounded-3xl hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-400 transition'
-                >
-                    Login
-                </button>
-            </Link>
-        </li>
-        <li>
-            <Link to={'/register'}>
-                <button 
-                className='bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 transition-[0.5s] font-semibold py-2 px-5 rounded-3xl'
-                >
-                    Register
-                </button>
-            </Link>
-        </li>
+        {
+            user ? 
+            <DropdownNev></DropdownNev>
+            :
+            <>
+                <li>
+                    <Link to={'/login'}>
+                        <button 
+                        className='border border-gray-500 py-2 px-5 rounded-3xl hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-400 transition'
+                        >
+                            Login
+                        </button>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link to={'/register'}>
+                        <button 
+                        className='bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 transition-[0.5s] font-semibold py-2 px-5 rounded-3xl'
+                        >
+                            Register
+                        </button>
+                    </Link>
+                </li>
+            </>
+        }
 
     </>
 
