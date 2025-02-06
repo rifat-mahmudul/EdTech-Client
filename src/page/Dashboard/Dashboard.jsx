@@ -8,13 +8,13 @@ const Dashboard = () => {
 
         <HelmetTitle title="Dashboard"></HelmetTitle>
 
-        <div className="flex gap-14">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-14">
 
-            <div className="w-[22%] h-screen bg-[#0000ff1a] px-4 py-10 sticky top-0 overflow-auto scrollbar-thin scrollbar-track-blue-300 scrollbar-thumb-blue-800">
+            <div className="lg:w-[22%] lg:h-screen bg-[#0000ff1a] px-4 lg:py-10 py-2 sticky top-0 z-50 backdrop-blur-lg lg:overflow-auto scrollbar-thin scrollbar-track-blue-300 scrollbar-thumb-blue-800">
                 <DashNav></DashNav>
             </div>
 
-            <div className="w-[80%] border border-red-400 mx-auto pt-10">
+            <div className="lg:w-[80%] w-[90%] border border-red-400 mx-auto lg:py-10 pb-10 lg:pb-0">
                 <Outlet></Outlet>
             </div>
 
