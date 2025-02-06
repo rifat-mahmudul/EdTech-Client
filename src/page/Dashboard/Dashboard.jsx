@@ -10,7 +10,7 @@ const Dashboard = () => {
 
         <div className="flex gap-14">
 
-            <div className="w-[22%] h-screen bg-[#0000ff1a] px-4 pt-10 sticky top-0 overflow-auto">
+            <div className="w-[22%] h-screen bg-[#0000ff1a] px-4 py-10 sticky top-0 overflow-auto scrollbar-thin scrollbar-track-blue-300 scrollbar-thumb-blue-800">
                 <DashNav></DashNav>
             </div>
 
