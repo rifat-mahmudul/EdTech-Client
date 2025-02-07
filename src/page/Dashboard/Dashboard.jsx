@@ -14,7 +14,7 @@ const Dashboard = () => {
                 <DashNav></DashNav>
             </div>
 
-            <div className="lg:w-[80%] w-[90%] border border-red-400 mx-auto lg:py-10 pb-10 lg:pb-0">
+            <div className="lg:w-[80%] w-[90%] mx-auto lg:py-10 pb-10 lg:pb-0">
                 <Outlet></Outlet>
             </div>
 
