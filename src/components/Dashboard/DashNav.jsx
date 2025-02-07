@@ -3,6 +3,13 @@ import DashNavItem from "../share/DashNavItem"
 import Logo from "../share/Logo";
 import { RiMenu3Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
+import { MdAssignmentAdd } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { MdOutlineAddToPhotos } from "react-icons/md";
+import { VscGitPullRequestNewChanges } from "react-icons/vsc";
+import { FaStackOverflow } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import { FaDiscourse } from "react-icons/fa";
 
 const DashNav = () => {
 
@@ -11,9 +18,28 @@ const DashNav = () => {
     const dashNavItems = <>
         <li>
             <DashNavItem 
+            navName="Statistics" 
+            setIsOpen={setIsOpen}
+            address="/dashboard/all-user"
+            icon={<FaStackOverflow />}
+            ></DashNavItem>
+        </li>
+
+        <li>
+            <DashNavItem 
+            navName="All User" 
+            setIsOpen={setIsOpen}
+            address="/dashboard/all-user"
+            icon={<FaUsers />}
+            ></DashNavItem>
+        </li>
+
+        <li>
+            <DashNavItem 
             navName="Add Course" 
             setIsOpen={setIsOpen}
             address="/dashboard/add-course"
+            icon={<MdOutlineAddToPhotos />}
             ></DashNavItem>
         </li>
 
@@ -22,16 +48,37 @@ const DashNav = () => {
             navName="Manage Course" 
             setIsOpen={setIsOpen}
             address="/dashboard/manage-course"
+            icon={<MdAssignmentAdd />}
+            ></DashNavItem>
+        </li>
+
+        <li className="pb-3">
+            <DashNavItem 
+            navName="Enroll Request" 
+            setIsOpen={setIsOpen}
+            address="/dashboard/manage-course"
+            icon={<VscGitPullRequestNewChanges />}
+            ></DashNavItem>
+        </li>
+
+        <li className="border-t-2 pt-8">
+            <DashNavItem 
+            navName="Home" 
+            setIsOpen={setIsOpen}
+            address="/"
+            icon={<IoHome />}
             ></DashNavItem>
         </li>
 
         <li>
             <DashNavItem 
-            navName="Manage Course" 
+            navName="Courses" 
             setIsOpen={setIsOpen}
-            address="/dashboard/manage-course"
+            address="/courses"
+            icon={<FaDiscourse />}
             ></DashNavItem>
         </li>
+
     </>
 
   return (
@@ -41,7 +88,7 @@ const DashNav = () => {
             <Logo></Logo>
         </div>
         
-        <ul className="text-xl lg:flex flex-col gap-4 hidden">
+        <ul className="text-xl lg:flex flex-col gap-5 hidden">
             {dashNavItems}
         </ul>
 
