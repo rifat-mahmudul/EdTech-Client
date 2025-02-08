@@ -13,7 +13,7 @@ import { PiStudentBold } from "react-icons/pi";
 import { TbLayoutDashboard } from "react-icons/tb";
 
 export function DropdownNev() {
-    const { user, logOut, setLoading } = useAuth();
+    const { user, logOut } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state || "/";
@@ -25,8 +25,6 @@ export function DropdownNev() {
             navigate(from);
         } catch (error) {
             toast.error(`Log out failed. Please try again. ${error}`);
-        } finally {
-            setLoading(false);
         }
     };
 
