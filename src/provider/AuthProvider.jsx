@@ -35,8 +35,9 @@ const AuthProvider = ({children}) => {
   }
 
   //logout user
-  const logOut = () => {
+  const logOut = async () => {
     setLoading(true);
+    await axiosPublic('/jwt', {withCredentials : true});
     return signOut(auth);
   }
 
