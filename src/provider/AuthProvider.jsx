@@ -3,7 +3,6 @@ import propTypes from 'prop-types';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import useAxiosPublic from "@/Hooks/useAxiosPublic";
-import useAxiosSecure from "@/Hooks/useAxiosSecure";
 
 export const authContext = createContext();
 
@@ -12,7 +11,6 @@ const AuthProvider = ({children}) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(false);
   const axiosPublic = useAxiosPublic();
-  // const axiosSecure= useAxiosSecure();
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -50,9 +48,20 @@ const AuthProvider = ({children}) => {
     })
   }
 
+  //get token
   const getToken = async(email) => {
     const {data} = await axiosPublic.post('/jwt', {email}, {withCredentials : true});
     return data;
+  }
+
+  //save user in DB
+  const saveUser = async user => {
+    const userInfo =  {
+      name : user?.displayName,
+      email : user?.email,
+      role : 'User'
+    }
+    await axiosPublic.post('/users', userInfo)
   }
 
   //track user information
@@ -61,6 +70,7 @@ const AuthProvider = ({children}) => {
       setUser(currentUser);
       if(currentUser){
         getToken(currentUser?.email);
+        saveUser(currentUser);
       }
       setLoading(false);
     })
