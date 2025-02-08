@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 const RegisterForm = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const {signInGoogle, createUser, profileUpdate, loading} = useAuth();
+    const {signInGoogle, createUser, profileUpdate, loading, logOut} = useAuth();
     const navigate = useNavigate('');
     const location = useLocation();
     const from = location.state || '/';
@@ -28,6 +28,7 @@ const RegisterForm = () => {
         try {
             await createUser(email, password);
             await profileUpdate(name);
+            await logOut();
             toast.success('Register Successful!');
             navigate('/login')
         } catch (error) {
