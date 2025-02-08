@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router";
 import PropTypes from 'prop-types'
 import LoadingSpinner from "@/components/share/LoadingSpinner";
 
-const PrivateRoutes = ({children}) => {
+const PrivateRoute = ({children}) => {
 
     const {user, loading} = useAuth();
     const location = useLocation();
@@ -14,13 +14,12 @@ const PrivateRoutes = ({children}) => {
 
     if(user) return children;
 
-    <Navigate to={'/login'} state={location.pathname} replace={true}></Navigate>
+    return <Navigate to={'/login'} state={location.pathname} replace={true}></Navigate>
 
-  return 
 }
 
-PrivateRoutes.propTypes = {
+PrivateRoute.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export default PrivateRoutes
+export default PrivateRoute
