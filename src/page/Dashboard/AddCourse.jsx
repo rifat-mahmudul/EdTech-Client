@@ -19,7 +19,7 @@ const AddCourse = () => {
   const {mutateAsync} = useMutation({
     mutationKey : ['Add-Course'],
     mutationFn : async(courseData) => {
-      const {data} = await axiosSecure.post('/add-course', courseData);
+      const {data} = await axiosSecure.post('/courses', courseData);
       return data;
     }
   })

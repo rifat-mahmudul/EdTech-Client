@@ -10,6 +10,7 @@ import AddCourse from "@/page/Dashboard/AddCourse";
 import ManageCourse from "@/page/Dashboard/ManageCourse";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoutes from "./AdminRoutes";
+import Courses from "@/page/Main/Courses";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Root></Root>}>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/privacy-policy" element={<PrivacyPolicy></PrivacyPolicy>}></Route>
+            <Route path="/courses" element={<Courses></Courses>}></Route>
         </Route>
 
         {/* authenticated Route */}

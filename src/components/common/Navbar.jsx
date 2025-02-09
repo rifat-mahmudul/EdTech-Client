@@ -16,7 +16,7 @@ const Navbar = () => {
     const navItems = <>
 
         <li><NavItem address='/' navName={'Home'} setIsOpen={setIsOpen}></NavItem></li>
-        <li><NavItem address='/' navName={'Courses'}></NavItem></li>
+        <li><NavItem address='/courses' navName={'Courses'} setIsOpen={setIsOpen}></NavItem></li>
 
         {/* authentication related buttons */}
         {
