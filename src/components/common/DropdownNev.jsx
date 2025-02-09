@@ -11,12 +11,14 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { IoMdLogOut } from "react-icons/io";
 import { PiStudentBold } from "react-icons/pi";
 import { TbLayoutDashboard } from "react-icons/tb";
+import useRole from "@/Hooks/useRole";
 
 export function DropdownNev() {
     const { user, logOut } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state || "/";
+    const [role] = useRole();
 
     const handleLogOut = async () => {
         try {
@@ -45,15 +47,20 @@ export function DropdownNev() {
                     }
                 </button>
             </DropdownMenuTrigger>
+
             <DropdownMenuContent className="w-56">
-                <Link to={'/dashboard'}>
-                    <DropdownMenuItem>
-                        <button className="mx-auto text-lg flex items-center space-x-1">
-                            <span><TbLayoutDashboard /></span>
-                            <span>Dashboard</span>
-                        </button>
-                    </DropdownMenuItem>
-                </Link>
+                {
+                    role === "Admin" &&
+                    <Link to={'/dashboard'}>
+                        <DropdownMenuItem>
+                            <button className="mx-auto text-lg flex items-center space-x-1">
+                                <span><TbLayoutDashboard /></span>
+                                <span>Dashboard</span>
+                            </button>
+                        </DropdownMenuItem>
+                    </Link>
+                }
+
                 <Link to={'/profile'}>
                 <DropdownMenuItem>
                     <button className="mx-auto text-lg flex items-center space-x-1">
@@ -62,6 +69,7 @@ export function DropdownNev() {
                     </button>
                 </DropdownMenuItem>
                 </Link>
+
                 <DropdownMenuItem>
                     <button onClick={handleLogOut} className="mx-auto text-lg flex items-center">
                         <span className="font-bold"><IoMdLogOut /></span> 
