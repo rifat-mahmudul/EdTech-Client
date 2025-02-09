@@ -41,6 +41,14 @@ const Courses = () => {
             }
         </div>
 
+        <div className="text-center mt-10">
+            <a href="https://www.youtube.com/@VIRTUALACADEMY-BD/playlists" target="_blank">
+                <button className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 px-5 mt-5 rounded-lg font-bold transition-[0.5s]">
+                    See All Free Course
+                </button>
+            </a>
+        </div>
+
     </section>
   )
 }
