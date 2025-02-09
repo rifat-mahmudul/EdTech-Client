@@ -1,3 +1,4 @@
+import { imageUpload } from "@/lib/utils";
 import { useState } from "react"
 import { useForm } from "react-hook-form";
 
@@ -8,7 +9,9 @@ const AddCourse = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async data => {
-    console.log(data);
+    const {image} = data;
+    const photo = await imageUpload(image);
+    data.image = photo;
   }
 
   return (
