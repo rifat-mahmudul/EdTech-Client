@@ -11,6 +11,7 @@ import ManageCourse from "@/page/Dashboard/ManageCourse";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoutes from "./AdminRoutes";
 import Courses from "@/page/Main/Courses";
+import CourseDetails from "@/page/Main/CourseDetails";
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/privacy-policy" element={<PrivacyPolicy></PrivacyPolicy>}></Route>
             <Route path="/courses" element={<Courses></Courses>}></Route>
+            <Route path="/course-details/:id" element={<CourseDetails></CourseDetails>}></Route>
         </Route>
 
         {/* authenticated Route */}
