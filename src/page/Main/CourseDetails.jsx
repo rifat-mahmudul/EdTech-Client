@@ -5,6 +5,7 @@ import { useParams } from "react-router"
 import logo from '../../assets/logo.jpg'
 import OurMission from "@/components/Home/OurMission";
 import Faq from "@/components/Home/Faq";
+import HelmetTitle from "@/components/share/HelmetTitle";
 
 const CourseDetails = () => {
 
@@ -25,6 +26,8 @@ const CourseDetails = () => {
 
     return (
       <section className="pt-10">
+
+        <HelmetTitle title="Course Details"></HelmetTitle>
 
         <div className="max-w-[90%] xl:max-w-[1200px] mx-auto text-center">
 
