@@ -9,6 +9,7 @@ import Dashboard from "@/page/Dashboard/Dashboard";
 import AddCourse from "@/page/Dashboard/AddCourse";
 import ManageCourse from "@/page/Dashboard/ManageCourse";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoutes from "./AdminRoutes";
 
 const AppRoutes = () => {
   return (
@@ -26,10 +27,10 @@ const AppRoutes = () => {
         <Route path="/forgot-password" element={<ForgotPass></ForgotPass>}></Route>
 
         {/* dashboard related Routes */}
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>}>
+        <Route path="/dashboard" element={<PrivateRoute><AdminRoutes><Dashboard></Dashboard></AdminRoutes></PrivateRoute>}>
         
-          <Route path="/dashboard/add-course" element={<PrivateRoute><AddCourse></AddCourse></PrivateRoute>}></Route>
-          <Route path="/dashboard/manage-course" element={<PrivateRoute><ManageCourse></ManageCourse></PrivateRoute>}></Route>
+          <Route path="/dashboard/add-course" element={<PrivateRoute><AdminRoutes><AddCourse></AddCourse></AdminRoutes></PrivateRoute>}></Route>
+          <Route path="/dashboard/manage-course" element={<PrivateRoute><AdminRoutes><ManageCourse></ManageCourse></AdminRoutes></PrivateRoute>}></Route>
         
         </Route>
 
