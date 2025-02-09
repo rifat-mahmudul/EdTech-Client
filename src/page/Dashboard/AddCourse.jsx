@@ -1,9 +1,20 @@
+import { useState } from "react"
+import { useForm } from "react-hook-form";
 
 const AddCourse = () => {
+
+  const [loading, setLoading] = useState();
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = async data => {
+    console.log(data);
+  }
+
   return (
     <section>
 
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
 
         {/* course name and image */}
         <div className="flex flex-col gap-6 lg:gap-0 sm:flex-row items-center justify-between">
@@ -16,7 +27,16 @@ const AddCourse = () => {
               type="text" 
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Course Name" 
+              {
+                ...register('courseName', {
+                  required : "Course Name is Required",
+                })
+              }
               />
+              {
+                errors.courseName &&
+                <p className='text-xs mt-2 text-red-500'>{errors.courseName.message}</p>
+              }
           </div>
 
           {/* upload Image */}
@@ -33,6 +53,11 @@ const AddCourse = () => {
                     id='image'
                     accept='image/*'
                     hidden
+                    {
+                      ...register('image', {
+                        required : "Course Thumbnail is Required",
+                      })
+                    }
                   />
                   <div className='bg-blue-500 text-white border border-blue-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-blue-600 transition'>
                     Upload
@@ -40,6 +65,10 @@ const AddCourse = () => {
                 </label>
               </div>
             </div>
+            {
+              errors.image &&
+              <p className='text-xs mt-2 text-red-500'>{errors.image.message}</p>
+            }
           </div>
           
         </div>
@@ -55,7 +84,16 @@ const AddCourse = () => {
               type="number" 
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Course Price" 
+              {
+                ...register('coursePrice', {
+                  required : "Course Price is Required",
+                })
+              }
               />
+              {
+                errors.coursePrice &&
+                <p className='text-xs mt-2 text-red-500'>{errors.coursePrice.message}</p>
+              }
           </div>
 
           {/* discount */}
@@ -66,6 +104,9 @@ const AddCourse = () => {
               type="number" 
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Discount" 
+              {
+                ...register('discount')
+              }
               />
           </div>
           
@@ -79,7 +120,16 @@ const AddCourse = () => {
             <textarea
             className="w-full p-3 border border-blue-500 outline-0 focus:border-2 rounded-lg h-40 bg-[#0000ff13]"
             placeholder="Write Details About The Course..."
+            {
+              ...register('description', {
+                required : "Description is Required",
+              })
+            }
             ></textarea>
+            {
+              errors.description &&
+              <p className='text-xs mt-2 text-red-500'>{errors.description.message}</p>
+            }
         </div>
 
         <button 
