@@ -3,6 +3,8 @@ import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router"
 import logo from '../../assets/logo.jpg'
+import OurMission from "@/components/Home/OurMission";
+import Faq from "@/components/Home/Faq";
 
 const CourseDetails = () => {
 
@@ -22,7 +24,7 @@ const CourseDetails = () => {
     if(isLoading) return <LoadingSpinner></LoadingSpinner>
 
     return (
-      <section className="pt-10 pb-24">
+      <section className="pt-10">
 
         <div className="max-w-[90%] xl:max-w-[1200px] mx-auto text-center">
 
@@ -42,6 +44,12 @@ const CourseDetails = () => {
           </button>
 
         </div>
+
+        {/* our mission */}
+        <OurMission></OurMission>
+
+        {/* frequently question */}
+        <Faq></Faq>
 
       </section>
     )

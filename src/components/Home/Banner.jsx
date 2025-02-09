@@ -27,7 +27,7 @@ const Banner = () => {
                         <p className="text-gray-300">8 May 2024 virtualacademybd started
                         From the beginning, our goal was to develop the educated unemployed of the country completely free of cost. And provide guaranteed jobs. Now we are moving forward with this goal. Initially, we started with about 150 students, but some students were serious and in the end, virtualacademybd was able to arrange their jobs and internships. Thank you all for being with us.</p>
                         
-                        <Link to='all-course'>
+                        <Link to='/courses'>
                             <button className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 transition-[0.5s] font-semibold py-2 px-4 rounded-md mt-5">View All Course</button>
                         </Link>
                     </div>
