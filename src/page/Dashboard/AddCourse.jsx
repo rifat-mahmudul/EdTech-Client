@@ -1,17 +1,45 @@
+import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import { imageUpload } from "@/lib/utils";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react"
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { ImSpinner9 } from "react-icons/im";
+import { useNavigate } from "react-router";
 
 const AddCourse = () => {
 
   const [loading, setLoading] = useState();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const watchedImage = watch('image');
+
+  const {mutateAsync} = useMutation({
+    mutationKey : ['Add-Course'],
+    mutationFn : async(courseData) => {
+      const {data} = await axiosSecure.post('/add-course', courseData);
+      return data;
+    }
+  })
 
   const onSubmit = async data => {
+    setLoading(true);
     const {image} = data;
     const photo = await imageUpload(image);
     data.image = photo;
+
+    try {
+      await mutateAsync(data);
+      toast.success('Course Added Successfully!');
+      navigate('/dashboard/manage-course');
+    } catch (error) {
+      console.log(`error from post course : ${error}`);
+      toast.error('An error occurred! Please try again.')
+    }finally{
+      setLoading(false);
+    }
   }
 
   return (
@@ -63,7 +91,7 @@ const AddCourse = () => {
                     }
                   />
                   <div className='bg-blue-500 text-white border border-blue-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-blue-600 transition'>
-                    Upload
+                    {watchedImage && watchedImage[0] ? `${watchedImage[0].name.slice(0, 10)}...${watchedImage[0].type}` : "Upload"}
                   </div>
                 </label>
               </div>
@@ -136,16 +164,15 @@ const AddCourse = () => {
         </div>
 
         <button 
-        // disabled={loading}
+        disabled={loading}
         className='bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 w-full mt-6 rounded-lg font-bold transition-[0.5s] disabled:cursor-not-allowed disabled:bg-blue-300 text-lg'
         >
-            {/* {
+            {
                 loading ? 
                 <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> 
                 : 
                 "Add Course"
-            } */}
-            Add Course
+            }
         </button>
 
       </form>
