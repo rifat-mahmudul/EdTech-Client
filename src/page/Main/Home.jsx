@@ -1,3 +1,4 @@
+import AvailableCourse from "@/components/Home/AvailableCourse"
 import Banner from "../../components/Home/Banner"
 import Faq from "../../components/Home/Faq"
 import LearningSystem from "../../components/Home/LearingSystem"
@@ -9,6 +10,7 @@ const Home = () => {
     <section>
       <HelmetTitle title={'Home'}></HelmetTitle>
       <Banner></Banner>
+      <AvailableCourse></AvailableCourse>
       <LearningSystem></LearningSystem>
       <OurMission></OurMission>
       <Faq></Faq>

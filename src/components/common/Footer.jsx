@@ -29,7 +29,7 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <p className="hover:text-blue-500">01865467486</p>
+                                <p className="hover:text-blue-500">01865467486 (Whatsapp)</p>
                                 <p className="hover:text-blue-500">(Available : 10:00am to 07:00pm)</p>
                             </li>
                         </ul>

@@ -1,4 +1,5 @@
 import CourseCard from "@/components/share/CourseCard";
+import HelmetTitle from "@/components/share/HelmetTitle";
 import LoadingSpinner from "@/components/share/LoadingSpinner";
 import Title from "@/components/share/Title";
 import useAxiosPublic from "@/Hooks/useAxiosPublic"
@@ -20,6 +21,8 @@ const Courses = () => {
 
   return (
     <section className="mt-10 mb-24">
+
+        <HelmetTitle title="All Courses"></HelmetTitle>
 
         <div className="mb-10">
             <Title title="All Courses"></Title>
