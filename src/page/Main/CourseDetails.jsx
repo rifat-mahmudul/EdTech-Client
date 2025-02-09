@@ -1,13 +1,15 @@
+import LoadingSpinner from "@/components/share/LoadingSpinner";
 import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router"
+import logo from '../../assets/logo.jpg'
 
 const CourseDetails = () => {
 
     const {id} = useParams();
     const axiosPublic = useAxiosPublic();
 
-    const {data : courseDetails = {}} = useQuery({
+    const {data : courseDetails = {}, isLoading} = useQuery({
       queryKey : ['course-details'],
       queryFn : async() => {
         const {data} = await axiosPublic(`/courses/${id}`);
@@ -15,9 +17,32 @@ const CourseDetails = () => {
       }
     })
 
+    const {courseName, coursePrice, discount, description} = courseDetails;
+
+    if(isLoading) return <LoadingSpinner></LoadingSpinner>
+
     return (
-      <section>
-        <h1>This is course details page.</h1>
+      <section className="pt-10 pb-24">
+
+        <div className="max-w-[90%] xl:max-w-[1200px] mx-auto text-center">
+
+          <img className="h-20 w-20 rounded-full mx-auto" src={logo} alt="" />
+
+          <h1 className="text-4xl sm:text-5xl font-bold mt-5">
+            <span className="text-gray-300">Unlock Your Potential with</span> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-400"> {courseName}</span>
+          </h1>
+
+          <p className="sm:max-w-3xl mx-auto mt-4 text-gray-300 text-lg">{description}</p>
+
+          <p className="text-pink-600 line-through text-3xl font-semibold mt-3">{coursePrice}৳</p>
+
+          <button className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 px-5 mt-5 rounded-lg font-bold transition-[0.5s]">
+            Enroll Now | {discount}৳
+          </button>
+
+        </div>
+
       </section>
     )
 }
