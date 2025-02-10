@@ -29,7 +29,7 @@ const CourseDetails = () => {
 
         <HelmetTitle title="Course Details"></HelmetTitle>
 
-        <div className="max-w-[90%] xl:max-w-[1200px] mx-auto text-center">
+        <div className="max-w-[90%] xl:max-w-[1200px] mx-auto text-center border border-blue-800 py-5 rounded-xl shadow-lg shadow-blue-500 bg-gradient-to-tr">
 
           <img className="h-20 w-20 rounded-full mx-auto" src={logo} alt="" />
 

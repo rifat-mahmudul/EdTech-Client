@@ -27,7 +27,7 @@ const CourseCard = ({course}) => {
 
                     <div className="pt-2">
                         <h3 className="text-gray-300">
-                            {description.slice(0, 100)}...
+                            {description.slice(0, 80)}...
                         </h3>
                     </div>
 
