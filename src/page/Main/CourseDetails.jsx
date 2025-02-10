@@ -6,11 +6,14 @@ import logo from '../../assets/logo.jpg'
 import OurMission from "@/components/Home/OurMission";
 import Faq from "@/components/Home/Faq";
 import HelmetTitle from "@/components/share/HelmetTitle";
+import { useState } from "react";
+import CourseDetailsModal from "@/Modal/CourseDetailsModal";
 
 const CourseDetails = () => {
 
     const {id} = useParams();
     const axiosPublic = useAxiosPublic();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const {data : courseDetails = {}, isLoading} = useQuery({
       queryKey : ['course-details'],
@@ -42,11 +45,27 @@ const CourseDetails = () => {
 
           <p className="text-pink-600 line-through text-3xl font-semibold mt-3">{coursePrice}৳</p>
 
-          <button className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 px-5 mt-5 rounded-lg font-bold transition-[0.5s]">
+          <button 
+          onClick={() => setIsModalOpen(true)}
+          className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 px-5 mt-5 rounded-lg font-bold transition-[0.5s]">
             Enroll Now | {discount}৳
           </button>
 
         </div>
+
+
+        {/* modal */}
+        {
+          isModalOpen && 
+          <CourseDetailsModal
+          setIsModalOpen={setIsModalOpen}
+          courseName={courseName}
+          discount={discount}
+          ></CourseDetailsModal>
+        }
+
+
+
 
         {/* our mission */}
         <OurMission></OurMission>
