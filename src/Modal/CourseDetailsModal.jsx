@@ -1,9 +1,18 @@
 import PropTypes from 'prop-types'
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CourseDetailsModal = ({setIsModalOpen, discount}) => {
+
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md z-50">
-        <div className="bg-[#8080804e] p-6 rounded-lg shadow-lg text-center max-w-[90%] xl:max-w-[1100px] h-[400px] lg:h-[530px] overflow-auto mx-auto">
+        <div data-aos="zoom-in-up"  data-aos-duration="1000" className="bg-[#8080804e] p-6 rounded-lg shadow-lg text-center max-w-[90%] xl:max-w-[1100px] h-[400px] lg:h-[530px] overflow-auto mx-auto">
 
             <h1 className='text-2xl text-green-500 font-semibold'>Check the following rules carefully for payment.</h1>
 
