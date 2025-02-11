@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoutes from "./AdminRoutes";
 import Courses from "@/page/Main/Courses";
 import CourseDetails from "@/page/Main/CourseDetails";
+import AllUser from "@/page/Dashboard/AllUser";
 
 const AppRoutes = () => {
   return (
@@ -35,6 +36,7 @@ const AppRoutes = () => {
         
           <Route path="/dashboard/add-course" element={<PrivateRoute><AdminRoutes><AddCourse></AddCourse></AdminRoutes></PrivateRoute>}></Route>
           <Route path="/dashboard/manage-course" element={<PrivateRoute><AdminRoutes><ManageCourse></ManageCourse></AdminRoutes></PrivateRoute>}></Route>
+          <Route path="/dashboard/all-user" element={<PrivateRoute><AdminRoutes><AllUser></AllUser></AdminRoutes></PrivateRoute>}></Route>
         
         </Route>
 
