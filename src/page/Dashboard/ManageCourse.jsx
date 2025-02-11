@@ -10,6 +10,7 @@ import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 
 const ManageCourse = () => {
@@ -76,11 +77,13 @@ const ManageCourse = () => {
         
                 return (
                     <div className="flex gap-2 justify-around items-center">
-                            <button
-                                className="p-2 rounded-lg font-semibold bg-[#0000ff44] text-blue-400 hover:bg-[#0000ff6b] transition text-3xl"
-                            >
-                                <FaPencilAlt />
-                            </button>
+                            <Link to={`/dashboard/update-course/${row.original._id}`}>
+                              <button
+                                  className="p-2 rounded-lg font-semibold bg-[#0000ff44] text-blue-400 hover:bg-[#0000ff6b] transition text-3xl"
+                              >
+                                  <FaPencilAlt />
+                              </button>
+                            </Link>
 
                             <button
                                 onClick={() => handleDelete(row.original._id)}
@@ -105,7 +108,7 @@ const ManageCourse = () => {
 
     return (
         <section className="pb-16">
-            <HelmetTitle title="All User"></HelmetTitle>
+            <HelmetTitle title="Manage Course"></HelmetTitle>
 
             <div className="bg-[#07075f61] p-5 rounded-lg">
                 <div className="lg:overflow-hidden overflow-x-auto rounded-t-lg">

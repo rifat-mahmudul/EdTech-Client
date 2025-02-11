@@ -1,38 +1,52 @@
 import HelmetTitle from "@/components/share/HelmetTitle";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import { imageUpload } from "@/lib/utils";
-import { useMutation } from "@tanstack/react-query";
-import { useState } from "react"
-import { useForm } from "react-hook-form";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react"
 import toast from "react-hot-toast";
 import { ImSpinner9 } from "react-icons/im";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
-const AddCourse = () => {
+const UpdateCourse = () => {
 
   const [loading, setLoading] = useState();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
+  const {id} = useParams();
+  const [courseData, setCourseData] = useState({});
 
-  const { register, handleSubmit, formState: { errors }, watch } = useForm();
-  const watchedImage = watch('image');
-
-  const {mutateAsync} = useMutation({
-    mutationKey : ['Add-Course'],
-    mutationFn : async(courseData) => {
-      const {data} = await axiosSecure.post('/courses', courseData);
-      return data;
+  const {data : course = {}} = useQuery({
+    queryKey : ['update-single-course'],
+    queryFn : async() => {
+        const {data} = await axiosSecure(`/courses/${id}`);
+        return data;
     }
   })
 
-  const onSubmit = async data => {
+  useEffect(() => {
+    setCourseData(course);
+  }, [course])
+
+  const {courseName, coursePrice, discount, description} = courseData;
+
+  console.log(course)
+
+//   const {mutateAsync} = useMutation({
+//     mutationKey : ['update-Course'],
+//     mutationFn : async(courseData) => {
+//       const {data} = await axiosSecure.post('/courses', courseData);
+//       return data;
+//     }
+//   })
+
+  const handleSubmit = async data => {
     setLoading(true);
     const {image} = data;
     const photo = await imageUpload(image);
     data.image = photo;
 
     try {
-      await mutateAsync(data);
+    //   await mutateAsync(data);
       toast.success('Course Added Successfully!');
       navigate('/dashboard/manage-course');
     } catch (error) {
@@ -46,9 +60,9 @@ const AddCourse = () => {
   return (
     <section>
 
-      <HelmetTitle title="Add Course"></HelmetTitle>
+        <HelmetTitle title="Update Course"></HelmetTitle>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
 
         {/* course name and image */}
         <div className="flex flex-col gap-6 lg:gap-0 sm:flex-row items-center justify-between">
@@ -61,16 +75,8 @@ const AddCourse = () => {
               type="text" 
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Course Name" 
-              {
-                ...register('courseName', {
-                  required : "Course Name is Required",
-                })
-              }
+              defaultValue={courseName}
               />
-              {
-                errors.courseName &&
-                <p className='text-xs mt-2 text-red-500'>{errors.courseName.message}</p>
-              }
           </div>
 
           {/* upload Image */}
@@ -87,22 +93,13 @@ const AddCourse = () => {
                     id='image'
                     accept='image/*'
                     hidden
-                    {
-                      ...register('image', {
-                        required : "Course Thumbnail is Required",
-                      })
-                    }
                   />
                   <div className='bg-blue-500 text-white border border-blue-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-blue-600 transition'>
-                    {watchedImage && watchedImage[0] ? `${watchedImage[0].name.slice(0, 10)}...${watchedImage[0].type}` : "Upload"}
+                    Upload
                   </div>
                 </label>
               </div>
             </div>
-            {
-              errors.image &&
-              <p className='text-xs mt-2 text-red-500'>{errors.image.message}</p>
-            }
           </div>
           
         </div>
@@ -118,16 +115,8 @@ const AddCourse = () => {
               type="number" 
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Course Price" 
-              {
-                ...register('coursePrice', {
-                  required : "Course Price is Required",
-                })
-              }
+              defaultValue={coursePrice}
               />
-              {
-                errors.coursePrice &&
-                <p className='text-xs mt-2 text-red-500'>{errors.coursePrice.message}</p>
-              }
           </div>
 
           {/* discount */}
@@ -138,9 +127,7 @@ const AddCourse = () => {
               type="number" 
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Discount" 
-              {
-                ...register('discount')
-              }
+              defaultValue={discount}
               />
           </div>
           
@@ -154,16 +141,8 @@ const AddCourse = () => {
             <textarea
             className="w-full p-3 border border-blue-500 outline-0 focus:border-2 rounded-lg h-40 bg-[#0000ff13]"
             placeholder="Write Details About The Course..."
-            {
-              ...register('description', {
-                required : "Description is Required",
-              })
-            }
+            defaultValue={description}
             ></textarea>
-            {
-              errors.description &&
-              <p className='text-xs mt-2 text-red-500'>{errors.description.message}</p>
-            }
         </div>
 
         <button 
@@ -174,7 +153,7 @@ const AddCourse = () => {
                 loading ? 
                 <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> 
                 : 
-                "Add Course"
+                "Update Course"
             }
         </button>
 
@@ -184,4 +163,4 @@ const AddCourse = () => {
   )
 }
 
-export default AddCourse
+export default UpdateCourse
