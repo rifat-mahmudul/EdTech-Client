@@ -7,9 +7,13 @@ import { createColumnHelper, flexRender, getCoreRowModel, useReactTable, getSort
 import toast from "react-hot-toast";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { RiAdminFill } from "react-icons/ri";
 
 
 const AllUser = () => {
+
     const axiosSecure = useAxiosSecure();
 
     const { data: users = [], refetch } = useQuery({
@@ -33,6 +37,12 @@ const AllUser = () => {
         });
         toast.success("Make user successfully!")
     };
+
+    const handleDelete = async (id) => {
+        await axiosSecure.delete(`/users/${id}`);
+        await refetch();
+        toast.success("Delete user successfully!")
+    }
 
     const columnHelper = createColumnHelper();
 
@@ -79,20 +89,27 @@ const AllUser = () => {
                     <div className="flex gap-2 justify-around items-center">
                         {role === 'User' && (
                             <button
-                                onClick={() => handleAdmin(row.original._id, 'admin')}
-                                className="p-2 rounded-lg font-semibold bg-[#ffa6007a] text-white hover:bg-[#3b2f1b] transition"
+                                onClick={() => handleAdmin(row.original._id, 'Admin')}
+                                className="p-2 rounded-lg font-semibold bg-[#ffa60053] text-[#ffa600] hover:bg-[#3b2f1b] transition text-3xl"
                             >
-                                Make Admin
+                                <RiAdminFill />
                             </button>
                         )}
                         {role === 'Admin' && (
                             <button
-                                onClick={() => handleUser(row.original._id, 'user')}
-                                className="p-2 rounded-lg font-semibold bg-blue-700 text-white hover:bg-blue-900 transition"
+                                onClick={() => handleUser(row.original._id, 'User')}
+                                className="p-2 rounded-lg font-semibold bg-[#0000ff44] text-blue-400 hover:bg-[#0000ff6b] transition text-3xl"
                             >
-                                Make User
+                                <FaUsers />
                             </button>
                         )}
+
+                            <button
+                                onClick={() => handleDelete(row.original._id)}
+                                className="p-2 rounded-lg font-semibold bg-[#ff000052] text-red-500 hover:bg-[#651010b0] transition text-3xl"
+                            >
+                                <MdDeleteForever />
+                            </button>
                     </div>
                 );
             }
