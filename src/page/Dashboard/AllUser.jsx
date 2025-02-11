@@ -21,14 +21,14 @@ const AllUser = () => {
     });
 
     const handleAdmin = (id) => {
-        axiosSecure.patch(`/user/admin/${id}`, { role : 'admin' }).then(() => {
+        axiosSecure.patch(`/users/${id}`, { role : 'Admin' }).then(() => {
             refetch();
         });
         toast.success("Make admin successfully!")
     };
 
     const handleUser = (id) => {
-        axiosSecure.patch(`/user/admin/${id}`, { role : 'user' }).then(() => {
+        axiosSecure.patch(`/users/${id}`, { role : 'User' }).then(() => {
             refetch();
         });
         toast.success("Make user successfully!")
@@ -149,7 +149,7 @@ const AllUser = () => {
 
                                 <tbody>
                                     {table.getRowModel().rows.map((row) => (
-                                        <tr className="even:bg-[#07075f7a]" key={row.id}>
+                                        <tr className="even:bg-[#07075f8c]" key={row.id}>
                                             {row.getVisibleCells().map((cell) => (
                                                 <td key={cell.id} className=" px-4 py-2">
                                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
