@@ -20,7 +20,7 @@ const DashNav = () => {
             <DashNavItem 
             navName="Statistics" 
             setIsOpen={setIsOpen}
-            address="/dashboard/all-user"
+            address="/dashboard/statistics"
             icon={<FaStackOverflow />}
             ></DashNavItem>
         </li>
@@ -56,7 +56,7 @@ const DashNav = () => {
             <DashNavItem 
             navName="Enroll Request" 
             setIsOpen={setIsOpen}
-            address="/dashboard/manage-course"
+            address="/dashboard/enroll-request"
             icon={<VscGitPullRequestNewChanges />}
             ></DashNavItem>
         </li>

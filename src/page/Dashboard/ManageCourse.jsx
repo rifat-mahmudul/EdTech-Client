@@ -1,10 +1,177 @@
 
-const ManageCourse = () => {
-  return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur velit eveniet ad ratione aperiam voluptates accusantium expedita dolorum omnis, incidunt distinctio dignissimos suscipit repellat atque natus animi odio ducimus illum at, tempora vitae iure assumenda repudiandae! Suscipit doloribus temporibus distinctio deleniti ipsum facilis illum ad expedita! Ipsum, numquam libero voluptatibus id culpa quis quos! Consectetur itaque enim culpa pariatur consequuntur quibusdam ullam, velit reiciendis facere, totam omnis commodi magnam distinctio dolores cum ut voluptates. Rem quia iusto, quos recusandae blanditiis nihil, odit laboriosam maxime, nobis vero animi in delectus? Beatae tenetur corporis adipisci quidem voluptate. Velit saepe officia enim nisi, alias doloremque, quis cumque harum excepturi consequatur doloribus sapiente ratione repudiandae pariatur. Rem nisi maiores voluptas eius, impedit sed temporibus velit nobis quos, tempora, quam omnis consequatur molestias aperiam consequuntur eveniet odio dolores quidem eligendi aspernatur consectetur numquam! Adipisci facere nam quibusdam aliquid sit? Necessitatibus inventore maiores, quidem dolorem quod autem voluptate est voluptatum a veniam! Deserunt cupiditate a tempora! Deleniti error ut corporis laudantium iure. Alias repellendus in exercitationem nostrum quos ipsam ut eveniet sapiente hic, tempore impedit molestiae maiores vitae nisi accusamus, commodi fugiat odio aliquid animi modi ad nam sint! Corporis, aliquid architecto eligendi velit repellendus nihil voluptates provident. Sed molestias error hic, expedita quisquam, dignissimos temporibus iusto aspernatur commodi ut asperiores nesciunt voluptatem officia aperiam molestiae laudantium ratione. Consequuntur deserunt voluptatem et itaque ipsa unde sequi laborum dolorem. Aspernatur, reiciendis ducimus dignissimos omnis voluptatem eligendi vel maxime dolore quam nihil ex vero recusandae repellat ut ratione, fuga molestiae? Velit iste quam praesentium quo adipisci culpa perspiciatis facere esse autem provident est consequuntur, voluptatum porro nostrum impedit, possimus ut voluptatibus deleniti inventore maxime? Repellendus ex obcaecati commodi, dolor velit sequi, accusantium, voluptatibus ratione doloribus dignissimos vero dolore possimus placeat neque ducimus nemo dolorem perspiciatis impedit quidem sed consectetur amet vel! Doloremque delectus officiis mollitia a sint obcaecati omnis ipsum consequatur atque, vero recusandae suscipit voluptate praesentium, reprehenderit tenetur doloribus eaque magni deleniti modi nihil ea! Voluptate facilis, voluptas, quo eveniet tempore nulla, doloribus omnis beatae eaque neque veritatis harum sit laborum? Similique doloribus cum saepe fuga recusandae, molestias perferendis labore vitae quo! Aliquam doloribus quisquam illum cupiditate perferendis nemo nulla repellendus ut sequi tempora itaque veniam, recusandae nesciunt laborum architecto ad iste facilis mollitia! Perferendis natus laboriosam architecto hic blanditiis cupiditate id deleniti neque dolorem labore reprehenderit vitae eligendi iusto, delectus asperiores, dicta veritatis fugiat sapiente enim nam libero praesentium illum quaerat possimus. Cumque dignissimos eveniet vero, minus fuga doloribus quis sint, labore architecto ex tenetur facilis dolore optio laudantium quisquam ratione recusandae, error quaerat molestiae ut. Eveniet, fuga facere doloremque ducimus optio, tenetur nam nisi quibusdam eum vitae ullam deleniti dicta ratione eaque, modi iure odit. Quisquam dolorum blanditiis aliquid qui ea deleniti doloremque corporis. Eaque blanditiis quas dolor, illo aut vitae quia enim architecto dolores inventore rem voluptates animi tempora ut exercitationem, tempore et vero in necessitatibus repellat laborum officia ullam, natus consequatur? Molestiae vel vitae, eveniet qui expedita veritatis soluta quia facere beatae voluptatum voluptatibus, iste voluptates optio rem dicta quasi accusamus delectus vero reiciendis. Accusamus placeat quibusdam nemo, temporibus dolores minima odio culpa laudantium error itaque minus possimus quidem, voluptate optio sed nostrum illo quaerat facere at inventore. Saepe, earum nam tempora rem distinctio harum excepturi suscipit voluptas nobis aperiam error quae non, sed itaque. Ab quidem voluptas nisi id. Saepe earum, repellendus vel reprehenderit aliquam eaque non consequuntur illo, aliquid eligendi eius at culpa. Nisi, minus molestiae nihil dignissimos tempore itaque quidem maiores doloribus nam quae, amet dolorum saepe pariatur nesciunt veniam quod eligendi consectetur. Architecto maiores quibusdam at suscipit ipsam quia enim quo in? Provident a autem sunt, inventore similique suscipit aperiam impedit, id at repellendus accusantium dolorem fuga repellat mollitia aspernatur. Ullam nam reiciendis odit obcaecati sunt architecto! Ducimus non, et atque ad nihil quae magnam obcaecati sint earum dolores saepe sapiente dignissimos iste sunt eaque soluta nulla beatae id nobis quidem dolor. Suscipit nostrum distinctio vel commodi nisi. Ullam, ex debitis voluptas quaerat architecto voluptatibus ipsa non modi illum saepe! Ab sequi accusantium beatae animi error maiores, dolore dolorum deserunt officiis? Quam, laudantium non corrupti officia consectetur numquam voluptates fuga quisquam odio a ad ex natus eum magni est iure omnis, unde, atque quod? Dolorem natus consectetur ab hic corrupti cupiditate quis repudiandae voluptates exercitationem excepturi quo rerum dolorum minima tempora veniam nobis, eos fugiat accusantium aliquam voluptatibus debitis enim! Nostrum ipsam autem nemo. Harum dolor perspiciatis architecto! Laudantium illo eos dicta sequi minima magni culpa iste nobis explicabo a! Est iste vero nihil id, magni necessitatibus veritatis saepe doloribus architecto ad odit! Qui ullam amet magnam placeat itaque quam ut repellendus dolores sed? Rerum excepturi doloribus odio, ullam, quas nulla quae soluta quidem natus officiis porro modi error sequi minus! Tenetur error soluta dolorem expedita modi amet autem odit perspiciatis quibusdam perferendis, quidem velit atque doloribus nemo incidunt consequuntur obcaecati. Earum, aut excepturi? Vitae voluptate rem quos rerum eligendi nemo. Non eaque rerum mollitia impedit iure quisquam reiciendis placeat similique, maiores, perspiciatis nam voluptatum alias sequi autem asperiores tenetur qui nostrum. Suscipit voluptates quo commodi. Voluptatibus consequuntur in impedit nemo. Eligendi id eius nostrum tempora quidem nobis, qui, distinctio dolore commodi culpa ab ratione aut vitae nesciunt aliquam autem blanditiis excepturi fuga eveniet quis est ipsum provident. Animi omnis maxime sit suscipit. Ad assumenda commodi modi iusto expedita nostrum animi magnam molestias asperiores, alias sint ab quia ratione ipsum corrupti non cumque dolorem quasi. Praesentium consequatur est quidem, facere nihil dolores, in vitae maxime quam et distinctio, sed veritatis natus autem similique voluptas voluptatibus officia ducimus minus? A, accusantium mollitia odio, hic dolores corrupti at vero neque aliquam sed iure quasi, numquam tenetur veritatis enim aut delectus aliquid aperiam vitae explicabo tempora fuga cupiditate illo. Ea voluptatem ex inventore, eaque consequatur veritatis alias suscipit ullam, blanditiis eius quia, expedita doloribus totam minus iste sed tempore quasi placeat. Voluptas accusantium ipsam at illo iure, quas unde in ullam autem vero error delectus id eaque, dicta iusto laudantium assumenda omnis.
-    </div>
-  )
-}
 
-export default ManageCourse
+import HelmetTitle from "@/components/share/HelmetTitle";
+import useAxiosSecure from "@/Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import { createColumnHelper, flexRender, getCoreRowModel, useReactTable, getSortedRowModel, getPaginationRowModel } from "@tanstack/react-table";
+import toast from "react-hot-toast";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md";
+import { FaPencilAlt } from "react-icons/fa";
+
+
+const ManageCourse = () => {
+
+    const axiosSecure = useAxiosSecure();
+
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ["manage-course"],
+        queryFn: async () => {
+            const { data } = await axiosSecure(`/courses`);
+            return data;
+        },
+    });
+
+
+    const handleDelete = async (id) => {
+        await axiosSecure.delete(`/users/${id}`);
+        await refetch();
+        toast.success("Delete user successfully!")
+    }
+
+    const columnHelper = createColumnHelper();
+
+    const columns = [
+        columnHelper.accessor((_,rowIndex) => rowIndex + 1, {
+            id : "serial",
+            header : () => (<p className="text-center">S/N</p>),
+            cell : (info) => info.getValue()
+        }),
+
+        columnHelper.accessor('image', {
+          header : () => (<p className="text-center">Image</p>),
+          cell : (info) => (
+              <img className="h-12 w-12 rounded-lg mx-auto" src={info.getValue()} alt="" />
+          )
+        }),
+
+        columnHelper.accessor('discount', {
+            header : () => (<p className="text-center">Price</p>),
+            cell : (info) => info.getValue()
+        }),
+
+        columnHelper.display({
+            id: "actions",
+            header: () => <p className="text-center">Actions</p>,
+            cell: ({ row }) => {
+        
+                return (
+                    <div className="flex gap-2 justify-around items-center">
+                            <button
+                                className="p-2 rounded-lg font-semibold bg-[#0000ff44] text-blue-400 hover:bg-[#0000ff6b] transition text-3xl"
+                            >
+                                <FaPencilAlt />
+                            </button>
+
+                            <button
+                                onClick={() => handleDelete(row.original._id)}
+                                className="p-2 rounded-lg font-semibold bg-[#ff000052] text-red-500 hover:bg-[#651010b0] transition text-3xl"
+                            >
+                                <MdDeleteForever />
+                            </button>
+                    </div>
+                );
+            }
+        })
+    ]
+    
+    const table = useReactTable({
+        data : users,
+        columns,
+        getCoreRowModel : getCoreRowModel(),
+        getSortedRowModel : getSortedRowModel(),
+        getPaginationRowModel : getPaginationRowModel()
+    })
+
+
+    return (
+        <section className="pb-16">
+            <HelmetTitle title="All User"></HelmetTitle>
+
+            <div className="bg-[#07075f61] p-5 rounded-lg">
+                <div className="lg:overflow-hidden overflow-x-auto rounded-t-lg">
+                    {
+                        users.length === 0 ? (
+                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO USERS ADDED</p>
+                        ) : (
+                            <table className="w-full text-center bg-[#00048013] font-semibold">
+                                <thead className="text-center bg-[#0b0b6c] text-white">
+                                    {table.getHeaderGroups().map((headerGroup) => (
+                                        <tr key={headerGroup.id}>
+                                            {headerGroup.headers.map((header) => (
+                                                <th
+                                                    key={header.id}
+                                                    className={` px-4 py-4 text-left cursor-pointer ${
+                                                        header.column.getIsSorted() ? "bg-[#0b0b6c] text-white" : ""
+                                                    }`}
+                                                    onClick={header.column.getToggleSortingHandler()}
+                                                >
+                                                    <div className="flex items-center justify-center">
+                                                        {flexRender(header.column.columnDef.header, header.getContext())}
+                                                        <span className="ml-2">
+                                                            {{
+                                                                asc: <span className="text-blue-500 text-lg">🔼</span>,
+                                                                desc: <span className="text-red-500 text-lg">🔽</span>,
+                                                            }[header.column.getIsSorted()] || (
+                                                                <span className="text-gray-400 text-lg">↕️</span>
+                                                            )}
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                </thead>
+
+                                <tbody>
+                                    {table.getRowModel().rows.map((row) => (
+                                        <tr className="even:bg-[#07075f8c]" key={row.id}>
+                                            {row.getVisibleCells().map((cell) => (
+                                                <td key={cell.id} className=" px-4 py-2">
+                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        )
+                    }
+                </div>
+            </div>
+
+            {/* pagination */}
+            
+            {
+                users.length > 10 && (
+                    <div className="flex justify-end space-x-5 items-center mt-4">
+                        <button 
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                        className="py-2 sm:px-5 px-3 rounded-3xl bg-blue-600 text-white flex items-center space-x-1 disabled:bg-blue-400 disabled:cursor-not-allowed">
+                            <h1 className="text-lg"><MdKeyboardDoubleArrowLeft /></h1>
+                            <h1>Previous</h1>
+                        </button>
+
+                        <span className="font-semibold">
+                            {table.getState().pagination.pageIndex + 1} / {" "} {table.getPageCount()}
+                        </span>
+
+                        <button 
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                        className="py-2 sm:px-5 px-3 rounded-3xl bg-blue-500 text-white flex items-center space-x-1 disabled:bg-blue-400 disabled:cursor-not-allowed"
+                        >
+                            <h1>Next</h1>
+                            <h1 className="text-lg"><MdKeyboardDoubleArrowRight /></h1>
+                        </button>
+                    </div>
+                )
+            }
+
+        </section>
+    );
+};
+
+export default ManageCourse;
