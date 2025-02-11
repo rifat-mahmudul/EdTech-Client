@@ -135,7 +135,7 @@ const AllUser = () => {
                         users.length === 0 ? (
                             <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO USERS ADDED</p>
                         ) : (
-                            <table className="w-full text-center bg-[#00048007] font-semibold">
+                            <table className="w-full text-center bg-[#00048013] font-semibold">
                                 <thead className="text-center bg-[#0b0b6c] text-white">
                                     {table.getHeaderGroups().map((headerGroup) => (
                                         <tr key={headerGroup.id}>
@@ -143,7 +143,7 @@ const AllUser = () => {
                                                 <th
                                                     key={header.id}
                                                     className={` px-4 py-4 text-left cursor-pointer ${
-                                                        header.column.getIsSorted() ? "bg-purple-600 text-white" : ""
+                                                        header.column.getIsSorted() ? "bg-[#0b0b6c] text-white" : ""
                                                     }`}
                                                     onClick={header.column.getToggleSortingHandler()}
                                                 >
@@ -189,7 +189,7 @@ const AllUser = () => {
                         <button 
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
-                        className="py-2 sm:px-5 px-3 rounded-3xl bg-purple-600 text-white flex items-center space-x-1 disabled:bg-purple-400 disabled:cursor-not-allowed">
+                        className="py-2 sm:px-5 px-3 rounded-3xl bg-blue-600 text-white flex items-center space-x-1 disabled:bg-blue-400 disabled:cursor-not-allowed">
                             <h1 className="text-lg"><MdKeyboardDoubleArrowLeft /></h1>
                             <h1>Previous</h1>
                         </button>
@@ -201,7 +201,7 @@ const AllUser = () => {
                         <button 
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
-                        className="py-2 sm:px-5 px-3 rounded-3xl bg-purple-500 text-white flex items-center space-x-1 disabled:bg-purple-400 disabled:cursor-not-allowed"
+                        className="py-2 sm:px-5 px-3 rounded-3xl bg-blue-500 text-white flex items-center space-x-1 disabled:bg-blue-400 disabled:cursor-not-allowed"
                         >
                             <h1>Next</h1>
                             <h1 className="text-lg"><MdKeyboardDoubleArrowRight /></h1>
