@@ -9,6 +9,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 
 const ManageCourse = () => {
@@ -25,9 +26,21 @@ const ManageCourse = () => {
 
 
     const handleDelete = async (id) => {
-        await axiosSecure.delete(`/users/${id}`);
-        await refetch();
-        toast.success("Delete user successfully!")
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            await axiosSecure.delete(`/courses/${id}`);
+            await refetch();
+            toast.success("Delete Course successfully!")
+          }
+        });
     }
 
     const columnHelper = createColumnHelper();
@@ -40,10 +53,15 @@ const ManageCourse = () => {
         }),
 
         columnHelper.accessor('image', {
-          header : () => (<p className="text-center">Image</p>),
+          header : () => (<p className="text-center">Thumbnail</p>),
           cell : (info) => (
               <img className="h-12 w-12 rounded-lg mx-auto" src={info.getValue()} alt="" />
           )
+        }),
+
+        columnHelper.accessor('courseName', {
+          header : () => (<p className="text-center">Course Name</p>),
+          cell : (info) => info.getValue()
         }),
 
         columnHelper.accessor('discount', {
@@ -93,7 +111,7 @@ const ManageCourse = () => {
                 <div className="lg:overflow-hidden overflow-x-auto rounded-t-lg">
                     {
                         users.length === 0 ? (
-                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO USERS ADDED</p>
+                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO COURSE ADDED</p>
                         ) : (
                             <table className="w-full text-center bg-[#00048013] font-semibold">
                                 <thead className="text-center bg-[#0b0b6c] text-white">
