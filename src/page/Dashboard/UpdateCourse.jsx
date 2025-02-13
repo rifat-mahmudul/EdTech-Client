@@ -16,7 +16,7 @@ const UpdateCourse = () => {
   const [courseData, setCourseData] = useState({});
 
   const {data : course = {}} = useQuery({
-    queryKey : ['update-single-course'],
+    queryKey : ['update-single-course', id],
     queryFn : async() => {
         const {data} = await axiosSecure(`/courses/${id}`);
         return data;
@@ -29,28 +29,44 @@ const UpdateCourse = () => {
 
   const {courseName, coursePrice, discount, description} = courseData;
 
-  console.log(course)
+  const {mutateAsync} = useMutation({
+    mutationKey : ['update-Course'],
+    mutationFn : async(courseData) => {
+      const {data} = await axiosSecure.patch(`/courses/${id}`, courseData);
+      return data;
+    }
+  })
 
-//   const {mutateAsync} = useMutation({
-//     mutationKey : ['update-Course'],
-//     mutationFn : async(courseData) => {
-//       const {data} = await axiosSecure.post('/courses', courseData);
-//       return data;
-//     }
-//   })
-
-  const handleSubmit = async data => {
+  const handleSubmit = async (e) => {
     setLoading(true);
-    const {image} = data;
-    const photo = await imageUpload(image);
-    data.image = photo;
+    e.preventDefault();
+    const form = e.target;
+    const courseName = form.courseName.value;
+    const coursePrice = form.coursePrice.value;
+    const discount = form.discount.value;
+    const description = form.description.value;
+    const image = form.image.files;
+    let imageUrl = courseData.image;
+
+    if (image.length > 0) {
+        const uploadResponse = await imageUpload(image);
+        imageUrl = uploadResponse || null;
+    }
+
+    const updateData = {
+        courseName,
+        coursePrice,
+        discount,
+        description,
+        image : imageUrl
+    }
 
     try {
-    //   await mutateAsync(data);
-      toast.success('Course Added Successfully!');
+      await mutateAsync(updateData);
+      toast.success('Course Update Successfully!');
       navigate('/dashboard/manage-course');
     } catch (error) {
-      console.log(`error from post course : ${error}`);
+      console.log(`error from update course : ${error}`);
       toast.error('An error occurred! Please try again.')
     }finally{
       setLoading(false);
@@ -76,6 +92,7 @@ const UpdateCourse = () => {
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Course Name" 
               defaultValue={courseName}
+              name='courseName'
               />
           </div>
 
@@ -116,6 +133,7 @@ const UpdateCourse = () => {
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Course Price" 
               defaultValue={coursePrice}
+              name="coursePrice"
               />
           </div>
 
@@ -128,6 +146,7 @@ const UpdateCourse = () => {
               className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter Discount" 
               defaultValue={discount}
+              name="discount"
               />
           </div>
           
@@ -142,6 +161,7 @@ const UpdateCourse = () => {
             className="w-full p-3 border border-blue-500 outline-0 focus:border-2 rounded-lg h-40 bg-[#0000ff13]"
             placeholder="Write Details About The Course..."
             defaultValue={description}
+            name="description"
             ></textarea>
         </div>
 
