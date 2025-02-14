@@ -1,14 +1,65 @@
 import PropTypes from 'prop-types'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import useAuth from '@/Hooks/useAuth';
+import { ImSpinner9 } from 'react-icons/im';
+import { useMutation } from '@tanstack/react-query';
+import useAxiosSecure from '@/Hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
 
-const CourseDetailsModal = ({setIsModalOpen, discount}) => {
+const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
+
+    const {courseName, discount, image, privateGroup} = courseDetails;
+    const {user} = useAuth();
+    const [loading, setLoading] = useState();
+    const axiosSecure = useAxiosSecure();
+
+    const {mutateAsync} = useMutation({
+        mutationKey : ['course-request'],
+        mutationFn : async courseData => {
+            const {data} = await axiosSecure.post('/course-request', courseData);
+            return data;
+        }
+    })
+
+    const handleSubmit = async (e) => {
+        setLoading(true);
+        e.preventDefault();
+        const form = e.target;
+        const phoneNumber = form.phoneNumber.value;
+        const transactionID = form.transactionID.value;
+        
+        const courseData = {
+            courseName,
+            image,
+            phoneNumber,
+            transactionID,
+            student : {
+                name : user?.displayName,
+                email : user?.email
+            },
+            status : "Pending",
+            privateGroup,
+            classes : []
+        }
+
+        try {
+            await mutateAsync(courseData);
+            toast.success('Submit Data Successfully! Please wait for admin approval!')
+        } catch (error) {
+            console.log(`error post course request : ${error}`);
+            toast.error(`Submit failed. Please Try Again!`)
+        } finally {
+            setLoading(false);
+            setIsModalOpen(false);
+        }
+    }
+
 
     useEffect(() => {
         AOS.init();
     }, []);
-
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md z-50">
@@ -66,7 +117,7 @@ const CourseDetailsModal = ({setIsModalOpen, discount}) => {
 
                         <h1 className='text-center text-green-500 text-xl font-bold mb-2'>Submit the form with correct information</h1>
 
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             {/* phone number */}
                             <div>
                                 <label 
@@ -80,6 +131,7 @@ const CourseDetailsModal = ({setIsModalOpen, discount}) => {
                                 <input 
                                 type='number'
                                 className='w-full bg-inherit border-b-2  border-gray-400 focus:border-blue-500 focus:outline-0' 
+                                name='phoneNumber'
                                 required
                                 />
                             </div>
@@ -97,15 +149,23 @@ const CourseDetailsModal = ({setIsModalOpen, discount}) => {
                                 <input 
                                 type='text'
                                 className='w-full bg-inherit border-b-2  border-gray-400 focus:border-blue-500 focus:outline-0' 
+                                name='transactionID'
                                 required
                                 />
                             </div>
 
                             <div className="flex justify-end gap-4 mt-3">
                                 <button
-                                className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-2 px-5 rounded-lg font-bold transition-[0.5s]"
+                                disabled={loading}
+                                type='submit'
+                                className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-2 px-5 rounded-lg font-bold transition-[0.5s] disabled:cursor-not-allowed"
                                 >
-                                Submit
+                                    {
+                                        loading ? 
+                                        <ImSpinner9 className='animate-spin mx-auto text-2xl text-white' /> 
+                                        : 
+                                        "Submit"
+                                    }
                                 </button>
                                 
                                 <button
@@ -134,7 +194,7 @@ const CourseDetailsModal = ({setIsModalOpen, discount}) => {
 
 CourseDetailsModal.propTypes = {
     setIsModalOpen: PropTypes.func,
-    discount : PropTypes.number,
+    courseDetails : PropTypes.object
 }
 
 export default CourseDetailsModal

@@ -59,8 +59,7 @@ const CourseDetails = () => {
           isModalOpen && 
           <CourseDetailsModal
           setIsModalOpen={setIsModalOpen}
-          courseName={courseName}
-          discount={discount}
+          courseDetails={courseDetails}
           ></CourseDetailsModal>
         }
 
