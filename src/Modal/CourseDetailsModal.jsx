@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useAuth from '@/Hooks/useAuth';
 import { ImSpinner9 } from 'react-icons/im';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 
@@ -14,6 +14,14 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
     const {user} = useAuth();
     const [loading, setLoading] = useState();
     const axiosSecure = useAxiosSecure();
+
+    const {data : course = {}} = useQuery({
+        queryKey : ['course-by-courseName'],
+        queryFn: async () => {
+            const {data} = await axiosSecure(`/course-request/${courseName}`);
+            return data;
+        }
+    })
 
     const {mutateAsync} = useMutation({
         mutationKey : ['course-request'],
@@ -44,9 +52,14 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
             classes : []
         }
 
+        if(course?.courseName === courseName){
+            setLoading(false);
+            return toast.error('You have already submitted a request for this course. Please wait for admin approval.');
+        }
+
         try {
             await mutateAsync(courseData);
-            toast.success('Submit Data Successfully! Please wait for admin approval!')
+            toast.success('Submitted Data Successfully! Please wait for admin approval.')
         } catch (error) {
             console.log(`error post course request : ${error}`);
             toast.error(`Submit failed. Please Try Again!`)
