@@ -64,9 +64,6 @@ const CourseDetails = () => {
           ></CourseDetailsModal>
         }
 
-
-
-
         {/* our mission */}
         <OurMission></OurMission>
 

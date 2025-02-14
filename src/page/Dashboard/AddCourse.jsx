@@ -146,8 +146,26 @@ const AddCourse = () => {
           
         </div>
 
+        <div className="w-full mt-5">
+            <h1 className="font-bold mb-2">Private Group Link</h1>
+
+            <input 
+              type="text" 
+              className="w-full p-3 bg-inherit border border-blue-500 outline-0 focus:border-2 rounded-lg"
+              placeholder="Enter Private Group Link" 
+              {
+                ...register('privateGroup',{
+                  required : "Private Group is Required",
+                })
+              }
+              />
+        </div>
+        {
+          errors.privateGroup &&
+          <p className='text-xs mt-2 text-red-500'>{errors.privateGroup.message}</p>
+        }
+
         {/* course details */}
-        {/* course price */}
         <div className="w-full mt-6">
             <h1 className="font-bold mb-2">Course Details</h1>
 
