@@ -7,6 +7,7 @@ import { ImSpinner9 } from 'react-icons/im';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import useRole from '@/Hooks/useRole';
 
 const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
 
@@ -14,6 +15,7 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
     const {user} = useAuth();
     const [loading, setLoading] = useState();
     const axiosSecure = useAxiosSecure();
+    const [role] = useRole();
 
     const {data : course = {}} = useQuery({
         queryKey : ['course-by-courseName'],
@@ -50,6 +52,11 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
             status : "Pending",
             privateGroup,
             classes : []
+        }
+
+        if(role === 'Admin'){
+            setLoading(false);
+            return toast.error('Permission Not Allowed. You are a admin.');
         }
 
         if(course?.courseName === courseName){
