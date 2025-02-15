@@ -1,19 +1,22 @@
 import LoadingSpinner from "@/components/share/LoadingSpinner";
 import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import logo from '../../assets/logo.jpg'
 import OurMission from "@/components/Home/OurMission";
 import Faq from "@/components/Home/Faq";
 import HelmetTitle from "@/components/share/HelmetTitle";
 import { useState } from "react";
 import CourseDetailsModal from "@/Modal/CourseDetailsModal";
+import useAuth from "@/Hooks/useAuth";
 
 const CourseDetails = () => {
 
     const {id} = useParams();
     const axiosPublic = useAxiosPublic();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const {user} = useAuth();
+    const navigate = useNavigate();
 
     const {data : courseDetails = {}, isLoading} = useQuery({
       queryKey : ['course-details'],
@@ -46,7 +49,12 @@ const CourseDetails = () => {
           <p className="text-pink-600 line-through text-3xl font-semibold mt-3">{coursePrice}৳</p>
 
           <button 
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            if(!user){
+              return navigate('/login')
+            }
+            setIsModalOpen(true)
+          }}
           className="bg-gradient-to-r from-blue-700 to-blue-400 hover:from-blue-400 hover:to-blue-700 py-3 px-5 mt-5 rounded-lg font-bold transition-[0.5s]">
             Enroll Now | {discount}৳
           </button>
