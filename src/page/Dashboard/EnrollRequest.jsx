@@ -7,23 +7,22 @@ import { createColumnHelper, flexRender, getCoreRowModel, useReactTable, getSort
 import toast from "react-hot-toast";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
-import { MdDeleteForever } from "react-icons/md";
-import { FaPencilAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
-import { Link } from "react-router";
 
 
-const ManageCourse = () => {
+const EnrollRequest = () => {
 
     const axiosSecure = useAxiosSecure();
 
-    const { data: manageCourses = [], refetch } = useQuery({
-        queryKey: ["manage-course"],
+    const { data: enrollRequests = [], refetch } = useQuery({
+        queryKey: ["all-requested-course"],
         queryFn: async () => {
-            const { data } = await axiosSecure(`/courses`);
+            const { data } = await axiosSecure(`/course-request`);
             return data;
         },
     });
+
+    const pendingRequest = enrollRequests.filter(enrollReq => enrollReq.status === 'Pending');
 
 
     const handleDelete = async (id) => {
@@ -65,9 +64,29 @@ const ManageCourse = () => {
           cell : (info) => info.getValue()
         }),
 
-        columnHelper.accessor('discount', {
-            header : () => (<p className="text-center">Price</p>),
+        columnHelper.accessor('student.name', {
+          header : () => (<p className="text-center">Student Name</p>),
+          cell : (info) => info.getValue()
+        }),
+
+        columnHelper.accessor('student.email', {
+          header : () => (<p className="text-center">Student Email</p>),
+          cell : (info) => info.getValue()
+        }),
+
+        columnHelper.accessor('phoneNumber', {
+            header : () => (<p className="text-center">Phone Number</p>),
+            cell : (info) => { return <p className="font-mono">{info.getValue()}</p>}
+        }),
+
+        columnHelper.accessor('transactionID', {
+            header : () => (<p className="text-center">TransactionID</p>),
             cell : (info) => info.getValue()
+        }),
+
+        columnHelper.accessor('status', {
+            header : () => (<p className="text-center">Status</p>),
+            cell : (info) => { return <p className="text-orange-500 font-bold">{info.getValue()}</p>}
         }),
 
         columnHelper.display({
@@ -77,19 +96,17 @@ const ManageCourse = () => {
         
                 return (
                     <div className="flex gap-2 justify-around items-center">
-                            <Link to={`/dashboard/update-course/${row.original._id}`}>
-                              <button
-                                  className="p-2 rounded-lg font-semibold bg-[#0000ff44] text-blue-400 hover:bg-[#0000ff6b] transition text-3xl"
-                              >
-                                  <FaPencilAlt />
-                              </button>
-                            </Link>
+                            <button
+                                className="p-2 rounded-lg bg-[#0000ff5d] hover:bg-[#0000ff6b] transition font-bold"
+                            >
+                                Accept
+                            </button>
 
                             <button
                                 onClick={() => handleDelete(row.original._id)}
-                                className="p-2 rounded-lg font-semibold bg-[#ff000052] text-red-500 hover:bg-[#651010b0] transition text-3xl"
+                                className="p-2 rounded-lg font-semibold bg-[#ff000052] hover:bg-[#651010b0] transition"
                             >
-                                <MdDeleteForever />
+                                Reject
                             </button>
                     </div>
                 );
@@ -98,7 +115,7 @@ const ManageCourse = () => {
     ]
     
     const table = useReactTable({
-        data : manageCourses,
+        data : pendingRequest,
         columns,
         getCoreRowModel : getCoreRowModel(),
         getSortedRowModel : getSortedRowModel(),
@@ -110,11 +127,11 @@ const ManageCourse = () => {
         <section className="pb-16">
             <HelmetTitle title="Manage Course"></HelmetTitle>
 
-            <div className="bg-[#07075f61] p-5 rounded-lg">
-                <div className="lg:overflow-hidden overflow-x-auto rounded-t-lg">
+            <div className="bg-[#07075f61] p-5 rounded-lg overflow-x-auto rounded-t-lg scrollbar-thin scrollbar-track-[#020617] scrollbar-thumb-blue-500 max-w-[930px]">
+                <div>
                     {
-                        manageCourses.length === 0 ? (
-                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO COURSE ADDED</p>
+                        pendingRequest.length === 0 ? (
+                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO Enroll Request</p>
                         ) : (
                             <table className="w-full text-center bg-[#00048013] font-semibold">
                                 <thead className="text-center bg-[#0b0b6c] text-white">
@@ -165,7 +182,7 @@ const ManageCourse = () => {
             {/* pagination */}
             
             {
-                manageCourses.length > 10 && (
+                pendingRequest.length > 10 && (
                     <div className="flex justify-end space-x-5 items-center mt-4">
                         <button 
                         onClick={() => table.previousPage()}
@@ -195,4 +212,4 @@ const ManageCourse = () => {
     );
 };
 
-export default ManageCourse;
+export default EnrollRequest;

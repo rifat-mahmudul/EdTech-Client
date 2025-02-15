@@ -14,6 +14,7 @@ import Courses from "@/page/Main/Courses";
 import CourseDetails from "@/page/Main/CourseDetails";
 import AllUser from "@/page/Dashboard/AllUser";
 import UpdateCourse from "@/page/Dashboard/UpdateCourse";
+import EnrollRequest from "@/page/Dashboard/EnrollRequest";
 
 const AppRoutes = () => {
   return (
@@ -39,6 +40,7 @@ const AppRoutes = () => {
           <Route path="/dashboard/update-course/:id" element={<PrivateRoute><AdminRoutes><UpdateCourse></UpdateCourse></AdminRoutes></PrivateRoute>}></Route>
           <Route path="/dashboard/manage-course" element={<PrivateRoute><AdminRoutes><ManageCourse></ManageCourse></AdminRoutes></PrivateRoute>}></Route>
           <Route path="/dashboard/all-user" element={<PrivateRoute><AdminRoutes><AllUser></AllUser></AdminRoutes></PrivateRoute>}></Route>
+          <Route path="/dashboard/enroll-request" element={<PrivateRoute><AdminRoutes><EnrollRequest></EnrollRequest></AdminRoutes></PrivateRoute>}></Route>
         
         </Route>
 
