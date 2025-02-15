@@ -33,12 +33,12 @@ const EnrollRequest = () => {
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
+          confirmButtonText: "Yes, Reject!"
         }).then(async (result) => {
           if (result.isConfirmed) {
-            await axiosSecure.delete(`/courses/${id}`);
+            await axiosSecure.delete(`/course-request/${id}`);
             await refetch();
-            toast.success("Delete Course successfully!")
+            toast.success("Rejected Request")
           }
         });
     }
@@ -131,7 +131,7 @@ const EnrollRequest = () => {
                 <div>
                     {
                         pendingRequest.length === 0 ? (
-                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO Enroll Request</p>
+                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">No Enroll Request</p>
                         ) : (
                             <table className="w-full text-center bg-[#00048013] font-semibold">
                                 <thead className="text-center bg-[#0b0b6c] text-white">

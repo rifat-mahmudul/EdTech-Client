@@ -114,7 +114,7 @@ const ManageCourse = () => {
                 <div className="lg:overflow-hidden overflow-x-auto rounded-t-lg">
                     {
                         manageCourses.length === 0 ? (
-                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">NO COURSE ADDED</p>
+                            <p className="text-center text-3xl text-red-500 font-semibold mt-4">No COURSE ADDED</p>
                         ) : (
                             <table className="w-full text-center bg-[#00048013] font-semibold">
                                 <thead className="text-center bg-[#0b0b6c] text-white">
