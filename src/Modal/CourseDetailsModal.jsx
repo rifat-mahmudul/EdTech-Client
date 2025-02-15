@@ -59,7 +59,7 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
             return toast.error('Permission Not Allowed. You are a admin.');
         }
 
-        if(course?.courseName === courseName){
+        if(course && course?.courseName === courseName){
             setLoading(false);
             return toast.error('You have already submitted a request for this course. Please wait for admin approval.');
         }
