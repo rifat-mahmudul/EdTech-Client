@@ -51,7 +51,6 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
             },
             status : "Pending",
             privateGroup,
-            classes : []
         }
 
         if(role === 'Admin'){

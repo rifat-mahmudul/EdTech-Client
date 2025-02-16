@@ -68,7 +68,7 @@ const AllUser = () => {
                     <p className={`text-center py-1 rounded-lg font-bold ${
                         role === 'Admin' ? 'bg-[#ffa6004b] text-orange-500 font-bold' :
                         role === 'User' ? 'bg-[#0004ff5a] text-blue-400 font-bold' :
-                        role === 'Student' ? 'bg-[#f700ff5a] text-[#620665ee] font-bold' :
+                        role === 'Student' ? 'bg-[#f700ff40] text-[#ef25f6ee] font-bold' :
                         'bg-purple-300 text-purple-900 text-xs'
                     }`}>
                         {role === 'Admin' ? 'Admin' :
