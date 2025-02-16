@@ -15,6 +15,8 @@ import CourseDetails from "@/page/Main/CourseDetails";
 import AllUser from "@/page/Dashboard/AllUser";
 import UpdateCourse from "@/page/Dashboard/UpdateCourse";
 import EnrollRequest from "@/page/Dashboard/EnrollRequest";
+import MyClasses from "@/page/Student/MyClasses";
+import StudentRoute from "./StudentRoute";
 
 const AppRoutes = () => {
   return (
@@ -26,6 +28,10 @@ const AppRoutes = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy></PrivacyPolicy>}></Route>
             <Route path="/courses" element={<Courses></Courses>}></Route>
             <Route path="/course-details/:id" element={<CourseDetails></CourseDetails>}></Route>
+
+            {/* student route */}
+            <Route path="/my-classes" element={<PrivateRoute><StudentRoute><MyClasses></MyClasses></StudentRoute></PrivateRoute>}></Route>
+
         </Route>
 
         {/* authenticated Route */}

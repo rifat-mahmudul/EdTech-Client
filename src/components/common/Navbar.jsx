@@ -21,7 +21,7 @@ const Navbar = () => {
         <li><NavItem address='/courses' navName={'Courses'} setIsOpen={setIsOpen}></NavItem></li>
         {
             role === "Student" &&
-            <li><NavItem address='/classes' navName={'My Classes'} setIsOpen={setIsOpen}></NavItem></li>
+            <li><NavItem address='/my-classes' navName={'My Classes'} setIsOpen={setIsOpen}></NavItem></li>
         }
 
         {/* authentication related buttons */}
