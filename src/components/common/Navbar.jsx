@@ -6,17 +6,23 @@ import { useState } from 'react';
 import Logo from '../share/Logo';
 import useAuth from '../../Hooks/useAuth';
 import { DropdownNev } from './DropdownNev';
+import useRole from '@/Hooks/useRole';
 
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const {user} = useAuth();
+    const [role] = useRole();
 
 
     const navItems = <>
 
         <li><NavItem address='/' navName={'Home'} setIsOpen={setIsOpen}></NavItem></li>
         <li><NavItem address='/courses' navName={'Courses'} setIsOpen={setIsOpen}></NavItem></li>
+        {
+            role === "Student" &&
+            <li><NavItem address='/classes' navName={'My Classes'} setIsOpen={setIsOpen}></NavItem></li>
+        }
 
         {/* authentication related buttons */}
         {

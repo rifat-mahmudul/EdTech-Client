@@ -41,6 +41,18 @@ const EnrollRequest = () => {
         });
     }
 
+    const handleAccept = async(id, email) => {
+        try {
+            await axiosSecure.patch(`/course-request/${id}`, {status : "Accepted"});
+            await axiosSecure.patch(`/users/email/${email}`, {role : 'Student'})
+            await refetch();
+            toast.success('Request Accepted!')
+        } catch (error) {
+            console.log(`error form update request ${error}`);
+            toast.error('Request failed. Please try again.')
+        }
+    }
+
     const columnHelper = createColumnHelper();
 
     const columns = [
@@ -95,6 +107,7 @@ const EnrollRequest = () => {
                 return (
                     <div className="flex gap-2 justify-around items-center">
                             <button
+                                onClick={() => handleAccept(row.original._id, row.original.student.email)}
                                 className="p-2 rounded-lg bg-[#0000ff5d] hover:bg-[#0000ff6b] transition font-bold"
                             >
                                 Accept
