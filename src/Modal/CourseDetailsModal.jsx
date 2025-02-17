@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useAuth from '@/Hooks/useAuth';
 import { ImSpinner9 } from 'react-icons/im';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import useAxiosSecure from '@/Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import useRole from '@/Hooks/useRole';
@@ -16,14 +16,6 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
     const [loading, setLoading] = useState();
     const axiosSecure = useAxiosSecure();
     const [role] = useRole();
-
-    const {data : course = {}} = useQuery({
-        queryKey : ['course-by-courseName'],
-        queryFn: async () => {
-            const {data} = await axiosSecure(`/course-request/${courseName}`);
-            return data;
-        }
-    })
 
     const {mutateAsync} = useMutation({
         mutationKey : ['course-request'],
@@ -56,11 +48,6 @@ const CourseDetailsModal = ({setIsModalOpen, courseDetails}) => {
         if(role === 'Admin'){
             setLoading(false);
             return toast.error('Permission Not Allowed. You are a admin.');
-        }
-
-        if(course && course?.courseName === courseName){
-            setLoading(false);
-            return toast.error('You have already submitted a request for this course. Please wait for admin approval.');
         }
 
         try {
