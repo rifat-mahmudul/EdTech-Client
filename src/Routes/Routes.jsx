@@ -19,6 +19,7 @@ import MyClasses from "@/page/Student/MyClasses";
 import StudentRoute from "./StudentRoute";
 import Statistics from "@/page/Dashboard/Statistics";
 import Profile from "@/page/Main/Profile";
+import Error from "@/page/Main/Error";
 
 const AppRoutes = () => {
   return (
@@ -61,6 +62,7 @@ const AppRoutes = () => {
         
         </Route>
 
+        <Route path="*" element={<Error></Error>}></Route>
     </Routes>
   )
 }
