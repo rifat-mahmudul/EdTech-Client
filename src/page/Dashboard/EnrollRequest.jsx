@@ -138,7 +138,7 @@ const EnrollRequest = () => {
         <section className="pb-16">
             <HelmetTitle title="Manage Course"></HelmetTitle>
 
-            <div className="bg-[#07075f61] p-5 rounded-lg overflow-x-auto rounded-t-lg scrollbar-thin scrollbar-track-[#020617] scrollbar-thumb-blue-500 max-w-[930px]">
+            <div className="bg-[#07075f61] p-5 rounded-lg overflow-x-auto rounded-t-lg scrollbar-thin scrollbar-track-[#020617] scrollbar-thumb-blue-500 max-w-[1000px]">
                 <div>
                     {
                         pendingRequest.length === 0 ? (
