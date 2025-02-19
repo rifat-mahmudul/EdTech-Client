@@ -20,9 +20,6 @@ const EnrollRequest = () => {
         },
     });
 
-    const pendingRequest = enrollRequests.filter(enrollReq => enrollReq.status === 'Pending');
-
-
     const handleDelete = async (id) => {
         Swal.fire({
           title: "Are you sure?",
@@ -126,7 +123,7 @@ const EnrollRequest = () => {
     ]
     
     const table = useReactTable({
-        data : pendingRequest,
+        data : enrollRequests,
         columns,
         getCoreRowModel : getCoreRowModel(),
         getSortedRowModel : getSortedRowModel(),
@@ -141,7 +138,7 @@ const EnrollRequest = () => {
             <div className="bg-[#07075f61] p-5 rounded-lg overflow-x-auto rounded-t-lg scrollbar-thin scrollbar-track-[#020617] scrollbar-thumb-blue-500 max-w-[1000px]">
                 <div>
                     {
-                        pendingRequest.length === 0 ? (
+                        enrollRequests.length === 0 ? (
                             <p className="text-center text-3xl text-red-500 font-semibold mt-4">No Enroll Request</p>
                         ) : (
                             <table className="w-full text-center bg-[#00048013] font-semibold">
@@ -193,7 +190,7 @@ const EnrollRequest = () => {
             {/* pagination */}
             
             {
-                pendingRequest.length > 10 && (
+                enrollRequests.length > 10 && (
                     <div className="flex justify-end space-x-5 items-center mt-4">
                         <button 
                         onClick={() => table.previousPage()}
