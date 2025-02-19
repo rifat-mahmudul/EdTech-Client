@@ -4,7 +4,7 @@ import { Outlet } from "react-router"
 
 const Dashboard = () => {
   return (
-    <section className="max-w-[1200px] mx-auto">
+    <section >
 
         <HelmetTitle title="Dashboard"></HelmetTitle>
 
@@ -14,7 +14,7 @@ const Dashboard = () => {
                 <DashNav></DashNav>
             </div>
 
-            <div className="lg:w-[85%] w-[90%] mx-auto lg:py-10 pb-10 ">
+            <div className="lg:w-[85%] pr-0 lg:pr-5 w-[90%] mx-auto lg:py-10 pb-10 ">
                 <Outlet></Outlet>
             </div>
 
