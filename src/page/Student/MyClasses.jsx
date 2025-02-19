@@ -28,7 +28,7 @@ const MyClasses = () => {
             {
                 acceptedCourse.map(course => (
                     <MyCourseCard 
-                    key={course?._Id}
+                    key={course?._id}
                     course={course}
                     ></MyCourseCard>
                 ))
