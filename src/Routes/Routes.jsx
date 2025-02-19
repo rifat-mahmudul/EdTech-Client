@@ -18,6 +18,7 @@ import EnrollRequest from "@/page/Dashboard/EnrollRequest";
 import MyClasses from "@/page/Student/MyClasses";
 import StudentRoute from "./StudentRoute";
 import Statistics from "@/page/Dashboard/Statistics";
+import Profile from "@/page/Main/Profile";
 
 const AppRoutes = () => {
   return (
@@ -29,6 +30,9 @@ const AppRoutes = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy></PrivacyPolicy>}></Route>
             <Route path="/courses" element={<Courses></Courses>}></Route>
             <Route path="/course-details/:id" element={<CourseDetails></CourseDetails>}></Route>
+
+            {/* private route */}
+            <Route path="/profile" element={<Profile></Profile>}></Route>
 
             {/* student route */}
             <Route path="/my-classes" element={<PrivateRoute><StudentRoute><MyClasses></MyClasses></StudentRoute></PrivateRoute>}></Route>
