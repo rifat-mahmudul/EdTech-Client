@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import Root from "../Layout/Root";
 import Home from "../page/Main/Home";
 import Login from "../page/Authentication/Login";
@@ -17,6 +17,7 @@ import UpdateCourse from "@/page/Dashboard/UpdateCourse";
 import EnrollRequest from "@/page/Dashboard/EnrollRequest";
 import MyClasses from "@/page/Student/MyClasses";
 import StudentRoute from "./StudentRoute";
+import Statistics from "@/page/Dashboard/Statistics";
 
 const AppRoutes = () => {
   return (
@@ -41,7 +42,13 @@ const AppRoutes = () => {
 
         {/* dashboard related Routes */}
         <Route path="/dashboard" element={<PrivateRoute><AdminRoutes><Dashboard></Dashboard></AdminRoutes></PrivateRoute>}>
+
+          <Route
+            index
+            element={<Navigate to="statistics" replace />}
+          />
         
+          <Route path="/dashboard/statistics" element={<PrivateRoute><AdminRoutes><Statistics></Statistics></AdminRoutes></PrivateRoute>}></Route>
           <Route path="/dashboard/add-course" element={<PrivateRoute><AdminRoutes><AddCourse></AddCourse></AdminRoutes></PrivateRoute>}></Route>
           <Route path="/dashboard/update-course/:id" element={<PrivateRoute><AdminRoutes><UpdateCourse></UpdateCourse></AdminRoutes></PrivateRoute>}></Route>
           <Route path="/dashboard/manage-course" element={<PrivateRoute><AdminRoutes><ManageCourse></ManageCourse></AdminRoutes></PrivateRoute>}></Route>

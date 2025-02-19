@@ -66,3 +66,37 @@
     @apply bg-background text-foreground;
   }
 }
+
+.custom-calendar {
+  background-color: #3b82f6 !important;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.custom-calendar .react-calendar__month-view,
+.custom-calendar .react-calendar__tile,
+.custom-calendar .react-calendar__navigation {
+    background-color: #3b82f6 !important;
+    color: white !important;
+}
+
+.custom-calendar .react-calendar__navigation button {
+  background: #2563eb !important;
+  color: white !important;
+}
+
+.custom-calendar .react-calendar__tile {
+  background: transparent !important;
+  color: white !important;
+}
+
+.custom-calendar .react-calendar__tile--active {
+  background: #d91f06 !important;
+  color: white !important;
+  border-radius: 8px;
+}
+
+.custom-calendar .react-calendar__tile--active:hover {
+  background: #d91f06 !important;
+}
