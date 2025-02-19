@@ -1,5 +1,6 @@
 
 import Chart from "@/components/Dashboard/Chart";
+import HelmetTitle from "@/components/share/HelmetTitle";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Calendar from "react-calendar";
@@ -29,6 +30,9 @@ const Statistics = () => {
 
   return (
     <section>
+
+        <HelmetTitle title="Statistics"></HelmetTitle>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
 
             <div className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-200 p-4 rounded-lg text-center shadow-xl shadow-blue-900 h-36">
