@@ -36,7 +36,7 @@ const Statistics = () => {
                 <h1 className="mt-2 text-4xl font-semibold text-white">{users.length}</h1>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-700 via-purple-500 to-purple-200 p-4 rounded-lg text-center shadow-xl shadow-purple-900">
+            <div className="bg-gradient-to-r from-emerald-700 via-emerald-500 to-emerald-200 p-4 rounded-lg text-center shadow-xl shadow-emerald-900">
                 <h1 className="text-4xl text-white font-bold">Total Student</h1>
                 <h1 className="mt-2 text-4xl font-semibold text-white">{allStudent.length}</h1>
             </div>
@@ -53,7 +53,7 @@ const Statistics = () => {
 
             <div>
                 <Chart></Chart>
-                <h1 className="text-center mt-2 text-xl font-bold">Donation Report</h1>
+                <h1 className="text-center mt-2 text-xl font-bold">Statistics</h1>
             </div>
 
             <div className="mt-5">

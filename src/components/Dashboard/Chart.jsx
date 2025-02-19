@@ -28,36 +28,22 @@ const Chart = () => {
     },
   });
 
-  const { data: pets = [] } = useQuery({
-    queryKey: ['total-pets'],
+  const allStudent = users.filter(user => user.role === "Student");
+
+  const { data: courses = [] } = useQuery({
+    queryKey: ['total-courses'],
     queryFn: async () => {
-      const { data } = await axiosSecure('/pets');
+      const { data } = await axiosSecure('/courses');
       return data;
     },
   });
 
-  const { data: adoptionRequest = [] } = useQuery({
-    queryKey: ['total-adoptionRequest'],
-    queryFn: async () => {
-      const { data } = await axiosSecure('/adopt-request');
-      return data;
-    },
-  });
-
-  const { data: allDonation = [] } = useQuery({
-    queryKey: ["all-donation"],
-    queryFn: async () => {
-        const { data } = await axiosSecure(`/all-donations`);
-        return data;
-    },
-  });
 
   // Preparing dynamic data for chart
   const chartData = [
     { name: 'All Users', count: users.length },
-    { name: 'Total Pets', count: pets.length },
-    { name: 'Adoption Req.', count: adoptionRequest.length },
-    { name: 'Total Donations', count: allDonation.length },
+    { name: 'Total Student', count: allStudent.length },
+    { name: 'Total Course', count: courses.length },
   ];
 
   return (
