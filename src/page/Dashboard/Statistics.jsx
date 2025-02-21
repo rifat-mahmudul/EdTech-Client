@@ -47,13 +47,13 @@ const Statistics = () => {
 
             <div className="bg-gradient-to-r from-yellow-700 via-yellow-500 to-yellow-200 p-4 rounded-lg text-center shadow-xl shadow-yellow-900">
                 <h1 className="text-4xl text-white font-bold">Total Course</h1>
-                <h1 className="mt-2 text-2xl font-semibold text-white">{courses.length}</h1>
+                <h1 className="mt-2 text-4xl font-semibold text-white">{courses.length}</h1>
             </div>
 
         </div>
 
         {/* carts and calendar */}
-        <div className="mt-16 flex sm:flex-row flex-col gap-16 sm:gap-0 justify-between w-full">
+        <div className="mt-16 flex sm:flex-row flex-col gap-16 sm:gap-5  w-full">
 
             <div>
                 <Chart></Chart>
