@@ -13,7 +13,11 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
                     {/* Website Info */}
                     <div>
-                        <Logo></Logo>
+                        
+                        <div className="flex justify-center md:justify-start">
+                            <Logo></Logo>
+                        </div>
+
                         <p className="mt-4 text-sm text-gray-400">
                         8 May 2024 virtualacademybd started From the beginning, our goal was to develop the educated unemployed of the country completely free of cost. And provide guaranteed jobs. Now we are moving forward with this goal. Initially, we started with about 150 students, but some students were serious and in the end, virtualacademybd was able to arrange their jobs and internships. Thank you all for being with us.
                         </p>
@@ -91,7 +95,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <a
-                            href="AQE47m6k11rh_wAAAZTGP1GQXd7Mo_n2TxfFZ0rXIRNFgBa9LiRlGD1GtY5m4u7XmJJl0H01884ksqGjEiJ2RWBvQ3HEov7lcQcT5xbrNTgaHgDXJgM2d3P9rqPNhvW37GBMJFk"
+                            href="https://www.linkedin.com/company/virtual-academy-bd"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-300 hover:text-blue-500"

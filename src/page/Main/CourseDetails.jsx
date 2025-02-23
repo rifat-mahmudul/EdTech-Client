@@ -39,12 +39,12 @@ const CourseDetails = () => {
 
           <img className="h-20 w-20 rounded-full mx-auto" src={logo} alt="" />
 
-          <h1 className="text-4xl sm:text-5xl font-bold mt-5">
+          <h1 className="text-4xl sm:text-5xl font-bold mt-5 sm:max-w-3xl mx-auto">
             <span className="text-gray-300">Unlock Your Potential with</span> 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-400"> {courseName}</span>
           </h1>
 
-          <p className="sm:max-w-3xl mx-auto mt-4 text-gray-300 text-lg">{description}</p>
+          <p className=" mx-auto mt-5 text-gray-300 text-lg">{description}</p>
 
           <p className="text-pink-600 line-through text-3xl font-semibold mt-3">{coursePrice}৳</p>
 
